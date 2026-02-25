@@ -42,14 +42,14 @@ export default function PortfolioGrid() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
         {projects.map((project) => (
           <motion.div
             key={project.id}
             variants={item}
-            whileHover={{ y: -8 }}
-            className="group relative bg-slate-900/50 backdrop-blur-xl border border-emerald-500/30 rounded-2xl overflow-hidden cursor-pointer hover:border-emerald-500/60 transition-all duration-300"
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="group relative bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-green-500/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 ease-in-out"
             onClick={() => setSelectedProject(project.id)}
             onMouseEnter={() => setHoveredProject(project.id)}
             onMouseLeave={() => setHoveredProject(null)}
@@ -81,7 +81,7 @@ export default function PortfolioGrid() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                   
                   {/* Hover Overlay with View Project Button */}

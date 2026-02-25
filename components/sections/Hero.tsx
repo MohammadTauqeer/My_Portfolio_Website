@@ -81,7 +81,7 @@ export default function Hero() {
   }, [displayedText, isDeleting, textIndex, isPaused])
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 lg:px-8 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 lg:px-8 relative overflow-hidden scroll-mt-20 pt-20">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/10 rounded-full blur-3xl"></div>

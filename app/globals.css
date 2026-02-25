@@ -6,6 +6,7 @@
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-jetbrains: 'JetBrains Mono', monospace;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -49,4 +50,7 @@
   51%, 100% {
     opacity: 0;
   }
+}
+html {
+  scroll-behavior: smooth;
 }

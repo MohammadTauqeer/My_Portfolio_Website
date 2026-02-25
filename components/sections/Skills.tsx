@@ -1,34 +1,42 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { 
-  Code2, 
-  Layers, 
-  Palette, 
-  Database, 
-  Server, 
-  Bot, 
+import {
+  Code2,
+  Layers,
+  Palette,
+  Database,
+  Server,
+  Bot,
   Cpu,
   ShoppingCart,
   Smartphone,
-  Layout
+  Layout,
+  Brain,
+  Cloud,
+  Globe
 } from 'lucide-react'
 
 const skillsData = [
   {
     category: 'FRONTEND DEVELOPMENT',
     skills: [
-      { name: 'Next.js', icon: Layers, level: 'Primary' },
-      { name: 'React', icon: Code2, level: 'Expert' },
-      { name: 'Tailwind CSS', icon: Palette, level: 'Expert' },
-      { name: 'TypeScript', icon: Code2, level: 'Advanced' },
+      { name: 'Next.js', icon: Layers, level: 'Primary', link: 'https://nextjs.org/' },
+      { name: 'React', icon: Code2, level: 'Expert', link: 'https://react.dev/' },
+      { name: 'Tailwind CSS', icon: Palette, level: 'Expert', link: 'https://tailwindcss.com/' },
+      { name: 'TypeScript', icon: Code2, level: 'Advanced', link: 'https://www.typescriptlang.org/' },
+      { name: 'Bootstrap', icon: Globe, level: 'Advanced', link: 'https://getbootstrap.com/' },
     ]
   },
   {
     category: 'BACKEND & AI INTEGRATION',
     skills: [
-      { name: 'Node.js', icon: Server, level: 'Advanced' },
-      { name: 'Python', icon: Code2, level: 'Advanced' },
+      { name: 'OpenAI Agents SDK', icon: Brain, level: 'Expert', link: 'https://platform.openai.com/docs/guides/agents' },
+      { name: 'MCP Server', icon: Server, level: 'Specialized', link: 'https://modelcontextprotocol.io/' },
+      { name: 'Node.js', icon: Server, level: 'Advanced', link: 'https://nodejs.org/' },
+      { name: 'FastAPI', icon: Cloud, level: 'Advanced', link: 'https://fastapi.tiangolo.com/' },
+      { name: 'Python', icon: Code2, level: 'Advanced', link: 'https://www.python.org/' },
+      { name: 'Firebase', icon: Cloud, level: 'Advanced', link: 'https://firebase.google.com/' },
       { name: 'PostgreSQL', icon: Database, level: 'Advanced' },
       { name: 'RAG Chatbots', icon: Bot, level: 'Specialized' },
       { name: 'AI Model CLI', icon: Cpu, level: 'Claude, Qwen, Gemini' },
@@ -40,6 +48,7 @@ const skillsData = [
       { name: 'Custom Websites', icon: Layout, level: 'Expert' },
       { name: 'E-commerce Solutions', icon: ShoppingCart, level: 'Expert' },
       { name: 'Responsive Design', icon: Smartphone, level: 'Expert' },
+      { name: 'Web Applications', icon: Globe, level: 'Expert' },
     ]
   }
 ]
@@ -122,9 +131,8 @@ export default function Skills() {
             <div className="space-y-4">
               {category.skills.map((skill, skillIndex) => {
                 const Icon = skill.icon
-                return (
+                const SkillContent = (
                   <motion.div
-                    key={skillIndex}
                     variants={skillVariant}
                     whileHover={{ scale: 1.05 }}
                     className="group flex items-center gap-4 p-3 bg-slate-800/30 border border-emerald-500/10 rounded-xl hover:bg-slate-800/50 hover:border-emerald-500/30 transition-all duration-300 cursor-pointer"
@@ -148,6 +156,23 @@ export default function Skills() {
                     </div>
                   </motion.div>
                 )
+
+                // Wrap in anchor tag if link exists
+                if (skill.link) {
+                  return (
+                    <a
+                      key={skillIndex}
+                      href={skill.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block no-underline"
+                    >
+                      {SkillContent}
+                    </a>
+                  )
+                }
+
+                return <div key={skillIndex}>{SkillContent}</div>
               })}
             </div>
           </motion.div>
