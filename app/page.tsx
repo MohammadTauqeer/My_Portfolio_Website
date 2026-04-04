@@ -1,6 +1,7 @@
 'use client'
 
 import Hero from '@/components/sections/Hero'
+import AboutExperience from '@/components/sections/AboutExperience'
 import PortfolioGrid from '@/components/sections/PortfolioGrid'
 import Skills from '@/components/sections/Skills'
 import ProjectDiscovery from '@/components/sections/ProjectDiscovery'
@@ -9,6 +10,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+
+      <AboutExperience />
 
       <section id="featured" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
         <div className="text-center mb-16">
@@ -93,7 +96,7 @@ export default function Home() {
       </section>
 
       <footer className="py-12 px-4 border-t border-slate-800/50 text-center text-slate-400">
-        <p>© 2026 My Portfolio. Created by Mohammad Touqeer. All Rights Reserved.</p>
+        <p>© 2026 My Portfolio. Created by Mohammad Tauqeer. All Rights Reserved.</p>
       </footer>
     </main>
   )
