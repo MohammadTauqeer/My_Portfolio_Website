@@ -11,7 +11,7 @@ export default function Hero() {
   // 🎨 CUSTOMIZATION: Change these values to personalize your hero section
   const PROFILE_IMAGE_URL = "/touqeer2.jpeg"
   const YOUR_NAME = "MOHAMMAD TAUQEER"
-  const YOUR_ROLE = "Full-Stack Developer"
+  const YOUR_ROLE = "Agentic AI Developer"
   const YOUR_BIO = "Specializing in building high-performance E-commerce platforms, AI-integrated solutions, and Fintech interfaces. I turn complex business requirements into scalable, user-centric digital products using the power of Next.js and Modern AI."
   
   // Social links
