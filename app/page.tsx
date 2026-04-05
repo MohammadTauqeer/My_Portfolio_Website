@@ -48,7 +48,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center gap-6">
             {/* Thumbnail Image */}
             <a
-              href="/resume.pdf"
+              href="/resume-new.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group block cursor-pointer"
@@ -82,7 +82,7 @@ export default function Home() {
 
             {/* Download Button */}
             <a
-              href="/resume.pdf"
+              href="/resume-new.pdf"
               download="Touqeer_Mohammad_Resume.pdf"
               className="inline-flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-slate-950 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5"
             >
