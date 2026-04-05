@@ -236,7 +236,7 @@ export default function ProjectDiscovery() {
                     required: true,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                   })}
-                  placeholder="Touqeerchamp@gmail.com"
+                  placeholder="Mohammadtauqeer@gmail.com"
                   error={errors.email ? 'Valid email is required' : undefined}
                   required
                 />

@@ -16,7 +16,7 @@ export default function Hero() {
   
   // Social links
   const SOCIAL_LINKS = {
-    github: "https://github.com/TouqeerChamp",
+    github: "https://github.com/MohammadTauqeer",
     linkedin: "https://www.linkedin.com/in/mohammed-touqeer-30a679203/",
     email: "mailto:touqeerchamp@gmail.com"
   }
