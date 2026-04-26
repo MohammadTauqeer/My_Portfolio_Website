@@ -56,7 +56,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I have spent the last few years mastering the art of building scalable digital solutions. My journey includes a rigorous 2-month Remote Internship at Aykays, where I excelled as a Frontend Developer, delivering high-quality user interfaces.
+              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I have spent the last few years mastering the art of building scalable digital solutions. My journey includes a rigorous few months Remote Internship at Aykays, where I excelled as a Frontend Developer, delivering high-quality user interfaces.
             </motion.p>
 
             <motion.p
@@ -65,7 +65,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I am currently an advanced student at the Governor Sindh Initiative (GIAIC), where I am now specializing in Agentic AI in Quarter 4. My hands-on experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools. As of April 2026, I am actively developing Agentic AI solutions using the OpenAI SDK and MCP Servers.
+              I am currently an advanced student at the Governor Sindh Initiative (GIAIC), specializing in Agentic AI in Quarter 4. My expertise is rooted in building specialized tools like an AI Book with RAG Chatbot (Hackathon 1) for intelligent content interaction and a robust Todo Management System (Hackathon 2). My experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools.
             </motion.p>
 
             <motion.p
@@ -74,7 +74,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              "In my recent Hackathon 0 project, I developed 'My AI Employee,' an intelligent Agentic system designed to automate professional workflows. This AI employee can seamlessly interact with Gmail for smart email management, LinkedIn for automated networking, and Odoo ERP for business data handling. By integrating these platforms, I created a multi-functional AI assistant that can execute complex tasks across different business environments autonomously."
+              In my recent Hackathon 0 project, I developed 'My AI Employee,' an intelligent Agentic system designed to automate professional workflows. This AI assistant seamlessly interacts with Gmail, LinkedIn, and Odoo ERP, executing complex business tasks autonomously. As of April 2026, I am actively pushing the boundaries of AI using the OpenAI SDK and MCP Servers.
             </motion.p>
           </div>
 
