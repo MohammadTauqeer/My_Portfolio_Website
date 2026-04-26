@@ -17,6 +17,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 16,
+    title: "Physical AI Book & RAG Chatbot",
+    industry: "AI/ML",
+    description: "Interactive AI-powered book with RAG (Retrieval Augmented Generation) chatbot for enhanced learning",
+    challenge: "Integrating RAG technology to provide contextual responses based on book content",
+    solution: "Built intelligent chatbot using RAG architecture with Python/JavaScript, enabling users to interact with book content",
+    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
+    performanceMetric: {
+      label: "Response Time",
+      value: "1.2s"
+    },
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    tags: ["AI", "RAG", "Python/JS"]
+  },
+  {
     id: 1,
     title: "Center of Gravity GYM",
     industry: "Health & Fitness",
@@ -255,22 +271,6 @@ export const projects: Project[] = [
     },
     image: "/card-15.png",
     tags: ["Fintech", "UI/UX", "React"]
-  },
-  {
-    id: 16,
-    title: "Physical AI Book & RAG Chatbot",
-    industry: "AI/ML",
-    description: "Interactive AI-powered book with RAG (Retrieval Augmented Generation) chatbot for enhanced learning",
-    challenge: "Integrating RAG technology to provide contextual responses based on book content",
-    solution: "Built intelligent chatbot using RAG architecture with Python/JavaScript, enabling users to interact with book content",
-    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
-    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
-    performanceMetric: {
-      label: "Response Time",
-      value: "1.2s"
-    },
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    tags: ["AI", "RAG", "Python/JS"]
   }
 ]
 
