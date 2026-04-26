@@ -103,8 +103,8 @@ export const projects: Project[] = [
     description: "Efficient task management application developed during a hackathon phase.",
     challenge: "Building a complete task management solution within hackathon time constraints",
     solution: "Rapidly developed with Next.js, focused on core functionality and clean user interface",
-    liveUrl: "https://todoapp-sigma-red.vercel.app/",
-    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon_2_Phase_1_to_5.git",
+    liveUrl: "https://hackathone-2-todo-app.vercel.app/login",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathone_2_Todo_App.git",
     performanceMetric: {
       label: "Development Time",
       value: "48hrs"
@@ -263,8 +263,8 @@ export const projects: Project[] = [
     description: "Interactive AI-powered book with RAG (Retrieval Augmented Generation) chatbot for enhanced learning",
     challenge: "Integrating RAG technology to provide contextual responses based on book content",
     solution: "Built intelligent chatbot using RAG architecture with Python/JavaScript, enabling users to interact with book content",
-    liveUrl: "https://mohammadtauqeer.github.io/physical_ai_book_with_rag_chatbot_updated/",
-    sourceUrl: "https://github.com/MohammadTauqeer/physical_ai_book_with_rag_chatbot_updated",
+    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
     performanceMetric: {
       label: "Response Time",
       value: "1.2s"
