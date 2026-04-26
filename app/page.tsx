@@ -61,7 +61,7 @@ export default function Home() {
                 <div className="relative rounded-lg border-2 border-green-500/40 group-hover:border-green-500/70 transition-all duration-300 overflow-hidden hover:scale-105 shadow-xl shadow-green-500/10">
                   {/* Actual Thumbnail Image */}
                   <img
-                    src="/resume-thumb.png"
+                    src="/resume-thumb-new.jpg"
                     alt="Resume Thumbnail - Click to view full CV"
                     className="w-full h-auto object-cover"
                   />
