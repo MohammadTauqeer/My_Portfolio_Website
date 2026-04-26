@@ -18,19 +18,19 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 16,
-    title: "Physical AI Book & RAG Chatbot",
-    industry: "AI/ML",
-    description: "Interactive AI-powered book with RAG (Retrieval Augmented Generation) chatbot for enhanced learning",
-    challenge: "Integrating RAG technology to provide contextual responses based on book content",
-    solution: "Built intelligent chatbot using RAG architecture with Python/JavaScript, enabling users to interact with book content",
+    title: "Physical AI & Humanoid Robotics",
+    industry: "AI & Robotics",
+    description: "Advanced humanoid robotics system integrated with Physical AI for autonomous task execution and environmental interaction.",
+    challenge: "Developing precise motor controls and real-time environmental awareness for complex humanoid movements.",
+    solution: "Integrated specialized Physical AI models with RAG-enhanced decision making to allow the humanoid to interact with its surroundings intelligently.",
     liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
     sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
     performanceMetric: {
-      label: "Response Time",
-      value: "1.2s"
+      label: "Motor Precision",
+      value: "99.2%"
     },
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    tags: ["AI", "RAG", "Python/JS"]
+    tags: ["Robotics", "Physical AI", "Humanoid"]
   },
   {
     id: 0,
@@ -47,6 +47,22 @@ export const projects: Project[] = [
     },
     image: "/card-0.png",
     tags: ["Agentic AI", "Odoo", "Automation", "OpenAI"]
+  },
+  {
+    id: 17,
+    title: "Physical AI Book & RAG Chatbot",
+    industry: "AI/ML",
+    description: "Interactive AI-powered book with RAG (Retrieval Augmented Generation) chatbot for enhanced learning",
+    challenge: "Integrating RAG technology to provide contextual responses based on book content",
+    solution: "Built intelligent chatbot using RAG architecture with Python/JavaScript, enabling users to interact with book content",
+    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
+    performanceMetric: {
+      label: "Response Time",
+      value: "1.2s"
+    },
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    tags: ["AI", "RAG", "Python/JS"]
   },
   {
     id: 1,
