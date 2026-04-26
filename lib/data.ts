@@ -33,6 +33,22 @@ export const projects: Project[] = [
     tags: ["AI", "RAG", "Python/JS"]
   },
   {
+    id: 0,
+    title: "My_AI_Employee (Hackathon 0)",
+    industry: "Agentic AI & Automation",
+    description: "A multi-tier AI Employee system (Bronze to Platinum) that automates professional workflows using Agentic AI.",
+    challenge: "Integrating AI Agents with real-world platforms like Gmail, LinkedIn, and Odoo ERP for autonomous task execution.",
+    solution: "Built using OpenAI SDK and MCP Servers to handle tiered complexity, from simple email management to full ERP data handling.",
+    liveUrl: "https://hackathone-0-all-tier.onrender.com",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathone-0_All_Tier.git",
+    performanceMetric: {
+      label: "Tier Complexity",
+      value: "Level 4 (Platinum)"
+    },
+    image: "/card-0.png",
+    tags: ["Agentic AI", "Odoo", "Automation", "OpenAI"]
+  },
+  {
     id: 1,
     title: "Center of Gravity GYM",
     industry: "Health & Fitness",
