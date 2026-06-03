@@ -74,7 +74,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              In my recent Hackathon 0 project, I developed 'My AI Employee,' an intelligent Agentic system designed to automate professional workflows. This AI assistant seamlessly interacts with Gmail, LinkedIn, and Odoo ERP, executing complex business tasks autonomously. As of April 2026, I am actively pushing the boundaries of AI using the OpenAI SDK and MCP Servers.
+              In my recent Hackathon 0 project, I developed {`'My AI Employee,'`} an intelligent Agentic system designed to automate professional workflows. This AI assistant seamlessly interacts with Gmail, LinkedIn, and Odoo ERP, executing complex business tasks autonomously. As of April 2026, I am actively pushing the boundaries of AI using the OpenAI SDK and MCP Servers.
             </motion.p>
           </div>
 

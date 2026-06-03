@@ -152,7 +152,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-4"
             >
-              <span className="text-blue-400 text-lg font-medium">Hello, I'm</span>
+              <span className="text-blue-400 text-lg font-medium">Hello, I{"'"}m</span>
             </motion.div>
 
             {/* Name with Infinite Looping Typewriter Effect */}

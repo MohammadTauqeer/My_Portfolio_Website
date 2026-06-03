@@ -30,12 +30,12 @@ const projectTypes = [
   { value: 'custom', label: 'Something Else', description: 'Custom project requirements' },
 ]
 
-const budgetRanges = [
+/* const budgetRanges = [
   { value: '5k-10k', label: '$5K - $10K', description: 'Small projects' },
   { value: '10k-25k', label: '$10K - $25K', description: 'Medium projects' },
   { value: '25k-50k', label: '$25K - $50K', description: 'Large projects' },
   { value: '50k+', label: '$50K+', description: 'Enterprise solutions' },
-]
+] */
 
 export default function ProjectDiscovery() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -44,7 +44,7 @@ export default function ProjectDiscovery() {
 
   const projectType = watch('projectType')
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (/* data: FormData */) => {
     // Handle form submission - integrate with your backend or email service
     setIsSubmitted(true)
     // Here you would typically send this data to your backend
@@ -78,7 +78,7 @@ export default function ProjectDiscovery() {
           </motion.div>
           <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
           <p className="text-slate-400 mb-6">
-            Your project details have been received. I'll review your requirements and get back to you within 24 hours.
+            Your project details have been received. I{"'"}ll review your requirements and get back to you within 24 hours.
           </p>
           <Button
             onClick={() => {
@@ -109,7 +109,7 @@ export default function ProjectDiscovery() {
             Project Discovery
           </h2>
           <p className="text-slate-400 text-lg">
-            Let's understand your needs and create something amazing together
+            Let{"'"}s understand your needs and create something amazing together
           </p>
         </motion.div>
       </div>
