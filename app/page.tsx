@@ -1,6 +1,7 @@
 'use client'
 
 import Hero from '@/components/sections/Hero'
+import Scene from '@/components/sections/Scene'
 import AboutExperience from '@/components/sections/AboutExperience'
 import PortfolioGrid from '@/components/sections/PortfolioGrid'
 import Skills from '@/components/sections/Skills'
@@ -10,6 +11,7 @@ import ChatBot from '@/components/sections/ChatBot'
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <Scene />
       <Hero />
 
       <AboutExperience />
