@@ -58,3 +58,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Custom Cursor */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
