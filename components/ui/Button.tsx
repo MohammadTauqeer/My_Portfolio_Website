@@ -1,13 +1,18 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { ButtonHTMLAttributes, AnchorHTMLAttributes, forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type BaseProps = {
   variant?: 'primary' | 'secondary' | 'gradient' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+type ButtonProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' }
+type AnchorProps = BaseProps & AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' }
+
+type Props = ButtonProps | AnchorProps
+
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
   ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
     const baseStyles = 'font-medium transition-all duration-300 rounded-xl inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'
     
@@ -23,12 +28,28 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       md: 'px-6 py-3 text-base',
       lg: 'px-8 py-4 text-lg'
     }
+
+    const combinedClassName = cn(baseStyles, variants[variant], sizes[size], className)
     
+    if ('as' in props && props.as === 'a') {
+      const { as, ...anchorProps } = props as AnchorProps
+      return (
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          className={combinedClassName}
+          {...anchorProps}
+        >
+          {children}
+        </a>
+      )
+    }
+
+    const { as, ...buttonProps } = props as ButtonProps
     return (
       <button
-        ref={ref}
-        className={cn(baseStyles, variants[variant], sizes[size], className)}
-        {...props}
+        ref={ref as React.Ref<HTMLButtonElement>}
+        className={combinedClassName}
+        {...buttonProps}
       >
         {children}
       </button>

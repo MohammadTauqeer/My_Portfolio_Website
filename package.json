@@ -2,17 +2,25 @@
   "name": "premium-portfolio",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "next dev",
-  "build": "npx next build",
-  "start": "next start",
-  "lint": "next lint"
-},
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "npx next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
+    "@langchain/google-genai": "^2.1.31",
+    "@langchain/openai": "^1.4.7",
+    "@langchain/pinecone": "^1.0.3",
+    "@langchain/textsplitters": "^1.0.1",
+    "@pinecone-database/pinecone": "^5.1.2",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.10",
     "clsx": "^2.1.1",
+    "dotenv": "^17.4.2",
     "framer-motion": "^11.0.0",
+    "langchain": "^1.4.4",
     "lucide-react": "^0.344.0",
     "next": "^14.2.35",
     "react": "^18.3.1",

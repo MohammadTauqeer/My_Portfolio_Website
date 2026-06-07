@@ -214,14 +214,16 @@ export default function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                as="a"
+                href="#projects"
               >
                 View My Work
               </Button>
               <Button
                 variant="secondary"
                 size="lg"
-                onClick={() => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })}
+                as="a"
+                href="#discovery"
               >
                 Hire Me
               </Button>
@@ -277,9 +279,9 @@ export default function Hero() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <a 
-            href="#portfolio" 
+            href="#projects" 
             className="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors"
-            aria-label="Scroll to portfolio section"
+            aria-label="Scroll to projects section"
           >
             <span className="text-sm">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 animate-bounce" />
