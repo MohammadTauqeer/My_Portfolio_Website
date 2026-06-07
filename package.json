@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.1.48",
     "@langchain/google-genai": "^2.1.31",
     "@langchain/openai": "^1.4.7",
     "@langchain/pinecone": "^1.0.3",
