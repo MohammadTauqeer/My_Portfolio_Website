@@ -32,7 +32,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     const combinedClassName = cn(baseStyles, variants[variant], sizes[size], className)
     
     if ('as' in props && props.as === 'a') {
-      const { as, ...anchorProps } = props as AnchorProps
+      const { as: _as, ...anchorProps } = props as AnchorProps
       return (
         <a
           ref={ref as React.Ref<HTMLAnchorElement>}
@@ -44,7 +44,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       )
     }
 
-    const { as, ...buttonProps } = props as ButtonProps
+    const { as: _as, ...buttonProps } = props as ButtonProps
     return (
       <button
         ref={ref as React.Ref<HTMLButtonElement>}
