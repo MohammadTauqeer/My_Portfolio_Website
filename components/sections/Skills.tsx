@@ -24,13 +24,14 @@ const skillsData = [
       { name: 'Next.js', icon: Layers, level: 'Primary', link: 'https://nextjs.org/' },
       { name: 'React', icon: Code2, level: 'Expert', link: 'https://react.dev/' },
       { name: 'Tailwind CSS', icon: Palette, level: 'Expert', link: 'https://tailwindcss.com/' },
-      { name: 'TypeScript', icon: Code2, level: 'Advanced', link: 'https://www.typescriptlang.org/' },
       { name: 'Bootstrap', icon: Globe, level: 'Advanced', link: 'https://getbootstrap.com/' },
     ]
   },
   {
     category: 'BACKEND & AI INTEGRATION',
     skills: [
+      { name: 'Openclaw', icon: Code2, level: 'Advanced' },
+      { name: 'TypeScript', icon: Code2, level: 'Advanced', link: 'https://www.typescriptlang.org/' },
       { name: 'OpenAI Agents SDK', icon: Brain, level: 'Expert', link: 'https://platform.openai.com/docs/guides/agents' },
       { name: 'MCP Server', icon: Server, level: 'Specialized', link: 'https://modelcontextprotocol.io/' },
       { name: 'Node.js', icon: Server, level: 'Advanced', link: 'https://nodejs.org/' },
