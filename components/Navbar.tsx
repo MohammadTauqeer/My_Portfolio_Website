@@ -23,18 +23,18 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-green-500/30 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-purple-500/20 ${
       isScrolled
-        ? 'bg-slate-950/80 backdrop-blur-md shadow-lg shadow-green-500/5'
-        : 'bg-slate-950/60 backdrop-blur-sm'
+        ? 'bg-black/80 backdrop-blur-md shadow-lg shadow-purple-950/30'
+        : 'bg-black/50 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="text-xl font-bold font-mono">
-            <span className="text-green-400">&lt;</span>
-            <span className="text-slate-100">Tauqeer</span>
-            <span className="text-green-400">/&gt;</span>
+          <a href="#home" className="text-xl font-bold font-mono tracking-tight group">
+            <span className="text-purple-400 group-hover:text-purple-300 transition-colors">&lt;</span>
+            <span className="text-white">Tauqeer</span>
+            <span className="text-purple-400 group-hover:text-purple-300 transition-colors">/&gt;</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -43,7 +43,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-green-400 transition-colors duration-200 rounded-lg hover:bg-green-400/10"
+                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 rounded-lg hover:bg-purple-500/10 hover:text-purple-200"
               >
                 {link.name}
               </a>
@@ -65,7 +65,7 @@ function MobileMenu({ navLinks }: { navLinks: { name: string; href: string }[] }
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-slate-300 hover:text-green-400 transition-colors"
+        className="p-2 text-slate-300 hover:text-purple-400 transition-colors"
         aria-label="Toggle menu"
       >
         {isOpen ? (
@@ -81,14 +81,14 @@ function MobileMenu({ navLinks }: { navLinks: { name: string; href: string }[] }
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-slate-800/50 shadow-lg shadow-green-500/5 md:hidden">
+        <div className="absolute top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-purple-500/20 shadow-lg shadow-purple-950/40 md:hidden">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-slate-300 hover:text-green-400 hover:bg-green-400/10 rounded-lg transition-colors duration-200"
+                className="block px-4 py-3 text-slate-300 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors duration-200"
               >
                 {link.name}
               </a>

@@ -28,8 +28,8 @@ export default function Hero() {
   const [isPaused, setIsPaused] = useState(false)
 
   const texts = [
-    { text: YOUR_NAME, color: 'text-emerald-500', isBold: true, isRole: false },
-    { text: YOUR_ROLE, color: 'text-slate-300', isBold: false, isRole: true }
+    { text: YOUR_NAME, color: 'text-white', isBold: true, isRole: false },
+    { text: YOUR_ROLE, color: 'text-slate-200', isBold: false, isRole: true }
   ]
 
   useEffect(() => {
@@ -84,8 +84,8 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 lg:px-8 relative overflow-hidden scroll-mt-20 pt-20">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-violet-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-600/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Content Container */}
@@ -101,11 +101,11 @@ export default function Hero() {
           >
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
               
               {/* Image container */}
               <div className="relative">
-                <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-slate-700/50 group-hover:border-blue-500/50 transition-colors duration-500">
+                <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500/50 transition-colors duration-500">
                   <Image
                     src={PROFILE_IMAGE_URL}
                     alt={`${YOUR_NAME} - Professional Profile`}
@@ -120,8 +120,8 @@ export default function Hero() {
                 </div>
 
                 {/* Decorative corner accents */}
-                <div className="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2 border-blue-500/50 rounded-tl-2xl"></div>
-                <div className="absolute -bottom-4 -right-4 w-16 h-16 border-b-2 border-r-2 border-purple-500/50 rounded-br-2xl"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2 border-purple-500/50 rounded-tl-2xl"></div>
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 border-b-2 border-r-2 border-violet-500/50 rounded-br-2xl"></div>
               </div>
 
               {/* Status badge */}
@@ -131,7 +131,7 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="absolute -bottom-4 left-1/2 -translate-x-1/2"
               >
-                <Badge variant="success" className="shadow-lg">
+                <Badge variant="primary" className="shadow-lg shadow-purple-950/50">
                   Available for Projects
                 </Badge>
               </motion.div>
@@ -152,7 +152,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-4"
             >
-              <span className="text-blue-400 text-lg font-medium">Hello, I{"'"}m</span>
+              <span className="text-purple-300 text-lg font-medium tracking-wide">Hello, I{"'"}m</span>
             </motion.div>
 
             {/* Name with Infinite Looping Typewriter Effect */}
@@ -166,10 +166,23 @@ export default function Hero() {
               <span 
                 className={`${texts[textIndex].isBold ? 'font-extrabold tracking-tight' : 'font-semibold tracking-normal'}`}
                 style={{
-                  textShadow: textIndex === 0 ? '0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.15)' : 'none'
+                  textShadow: textIndex === 0 ? '0 0 25px rgba(168, 85, 247, 0.35), 0 0 50px rgba(139, 92, 246, 0.15)' : 'none'
                 }}
               >
-                {texts[textIndex].isRole ? (
+                {textIndex === 0 ? (
+                  <>
+                    <span className="text-white">
+                      {displayedText.length <= 9
+                        ? displayedText
+                        : displayedText.slice(0, 9)}
+                    </span>
+                    {displayedText.length > 9 && (
+                      <span className="gradient-accent">
+                        {displayedText.slice(9)}
+                      </span>
+                    )}
+                  </>
+                ) : (
                   <>
                     <span className="text-white">
                       {displayedText.includes('Developer') 
@@ -177,16 +190,14 @@ export default function Hero() {
                         : displayedText}
                     </span>
                     {displayedText.includes('Developer') && (
-                      <span className="text-emerald-500">
+                      <span className="gradient-accent">
                         Developer{displayedText.split('Developer')[1] || ''}
                       </span>
                     )}
                   </>
-                ) : (
-                  <span className={texts[textIndex].color}>{displayedText}</span>
                 )}
                 <span 
-                  className="inline-block ml-1"
+                  className="inline-block ml-1 text-purple-400"
                   style={{ animation: 'blink 1s step-end infinite' }}
                 >
                   |

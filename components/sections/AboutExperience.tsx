@@ -12,9 +12,10 @@ export default function AboutExperience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-4 gradient-text"
+          className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
         >
-          About & Experience
+          <span className="text-white">About & </span>
+          <span className="gradient-accent">Experience</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -42,11 +43,11 @@ export default function AboutExperience() {
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{
               fontFamily: 'var(--font-jetbrains)',
-              textShadow: '0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.15)'
+              textShadow: '0 0 25px rgba(168, 85, 247, 0.25)'
             }}
           >
-            <span className="text-emerald-500">My Journey</span>
-            <span className="text-slate-100"> & Expertise</span>
+            <span className="text-white">My Journey </span>
+            <span className="gradient-accent">& Expertise</span>
           </h3>
 
           <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
@@ -84,7 +85,7 @@ export default function AboutExperience() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8 h-1 bg-gradient-to-r from-emerald-500 to-green-400 rounded-full origin-left"
+            className="mt-8 h-1 bg-gradient-to-r from-purple-500 via-violet-500 to-fuchsia-400 rounded-full origin-left"
             style={{ transformOrigin: 'left' }}
           />
         </motion.div>
@@ -98,16 +99,16 @@ export default function AboutExperience() {
           className="flex justify-center lg:justify-end"
         >
           <div className="relative group">
-            {/* Neon-green glow effect */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-emerald-500/40 via-green-500/30 to-emerald-500/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+            {/* Purple/violet glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-purple-500/40 via-violet-500/30 to-fuchsia-500/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
             
-            {/* Image container with neon border */}
+            {/* Image container with violet border */}
             <div className="relative">
               {/* Outer border with glow */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500 to-green-400 rounded-2xl opacity-70 blur-sm"></div>
+              <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 to-violet-400 rounded-2xl opacity-70 blur-sm"></div>
               
               {/* Main image container */}
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-emerald-500/60 group-hover:border-emerald-400 transition-all duration-500 bg-slate-900/50">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/60 group-hover:border-purple-400 transition-all duration-500 bg-slate-900/50">
                 <Image
                   src="/touqeer.png"
                   alt="Mohammad Touqeer - About & Experience"
@@ -120,9 +121,9 @@ export default function AboutExperience() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              {/* Decorative corner accents with neon glow */}
-              <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-emerald-500/70 rounded-tl-xl shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-              <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-emerald-500/70 rounded-br-xl shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+              {/* Decorative corner accents with purple glow */}
+              <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-purple-500/70 rounded-tl-xl shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+              <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-violet-500/70 rounded-br-xl shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
             </div>
 
             {/* Floating badge */}
@@ -133,8 +134,8 @@ export default function AboutExperience() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="absolute -bottom-4 left-1/2 -translate-x-1/2"
             >
-              <div className="px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-emerald-500/50 rounded-full shadow-lg shadow-emerald-500/20">
-                <span className="text-emerald-400 text-sm font-medium font-mono">
+              <div className="px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-purple-500/50 rounded-full shadow-lg shadow-purple-500/20">
+                <span className="text-purple-300 text-sm font-medium font-mono">
                   Agentic AI Developer
                 </span>
               </div>

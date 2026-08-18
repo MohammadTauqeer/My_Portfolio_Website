@@ -17,10 +17,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     const baseStyles = 'font-medium transition-all duration-300 rounded-xl inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'
     
     const variants = {
-      primary: 'bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20',
-      secondary: 'glass-effect hover:bg-slate-800/50',
-      gradient: 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white',
-      ghost: 'hover:bg-slate-800/30 text-slate-300 hover:text-white'
+      primary: 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25',
+      secondary: 'glass-effect hover:bg-purple-500/10 hover:border-purple-500/40 text-slate-200',
+      gradient: 'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50',
+      ghost: 'hover:bg-purple-500/10 text-slate-300 hover:text-purple-200'
     }
     
     const sizes = {

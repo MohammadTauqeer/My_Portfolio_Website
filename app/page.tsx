@@ -18,8 +18,9 @@ export default function Home() {
 
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Featured Projects
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            <span className="text-white">Featured </span>
+            <span className="gradient-accent">Projects</span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Transforming ideas into high-performance digital experiences
@@ -39,8 +40,9 @@ export default function Home() {
       <section id="resume" className="py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              Curriculum Vitae
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              <span className="text-white">Curriculum </span>
+              <span className="gradient-accent">Vitae</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               View my detailed experience and technical journey
@@ -58,10 +60,10 @@ export default function Home() {
             >
               <div className="relative max-w-[250px] mx-auto">
                 {/* Decorative border with glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-green-500/30 to-blue-500/30 rounded-lg blur-sm group-hover:from-green-500/50 group-hover:to-blue-500/50 transition-all duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-br from-purple-500/30 via-violet-500/30 to-fuchsia-500/20 rounded-lg blur-sm group-hover:from-purple-500/50 group-hover:to-violet-500/50 transition-all duration-300"></div>
                 
                 {/* Thumbnail Image Container */}
-                <div className="relative rounded-lg border-2 border-green-500/40 group-hover:border-green-500/70 transition-all duration-300 overflow-hidden hover:scale-105 shadow-xl shadow-green-500/10">
+                <div className="relative rounded-lg border-2 border-purple-500/40 group-hover:border-purple-500/70 transition-all duration-300 overflow-hidden hover:scale-105 shadow-xl shadow-purple-500/10">
                   {/* Actual Thumbnail Image */}
                   <img
                     src="/resume-thumb-new.jpg"
@@ -73,11 +75,11 @@ export default function Home() {
                 {/* Click hint overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-950/60 rounded-lg">
                   <div className="flex flex-col items-center gap-2">
-                    <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
-                    <span className="text-xs text-green-300 font-medium">View</span>
+                    <span className="text-xs text-purple-300 font-medium">View</span>
                   </div>
                 </div>
               </div>
@@ -87,7 +89,7 @@ export default function Home() {
             <a
               href="/resume-new.pdf"
               download="Touqeer_Mohammad_Resume.pdf"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-slate-950 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
