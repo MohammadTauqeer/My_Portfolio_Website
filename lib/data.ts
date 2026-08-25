@@ -52,6 +52,23 @@ export const projects: Project[] = [
     tags: ["Agentic AI", "Odoo", "Automation", "OpenAI"]
   },
   {
+    id: 17,
+    title: "Vite 3D Portfolio",
+    industry: "Web Apps & Platforms",
+    description: "An ultra-modern, high-performance 3D interactive portfolio built with Vite, React, and immersive graphics.",
+    challenge: "Rendering fluid 3D graphics and interactive visual elements with zero performance lag across devices.",
+    solution: "Leveraged Vite for lightning-fast bundling, React for reactive component state, and optimized 3D graphics pipelines.",
+    features: ["Interactive 3D Graphics", "Ultra-Fast Vite Performance", "Responsive Immersive Design", "Modern UI/UX Effects"],
+    liveUrl: "https://vite3d-p-folio.vercel.app",
+    sourceUrl: "https://github.com/MohammadTauqeer/Vite_3D-P-Folio.git",
+    performanceMetric: {
+      label: "Performance",
+      value: "99"
+    },
+    image: "/port.png",
+    tags: ["React", "Vite", "Tailwind CSS", "3D Graphics"]
+  },
+  {
     id: 1,
     title: "Center of Gravity GYM",
     industry: "Health & Fitness",

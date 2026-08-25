@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import Image from 'next/image'
@@ -220,7 +220,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start mb-8"
             >
               <Button
                 variant="primary"
@@ -237,6 +237,16 @@ export default function Hero() {
                 href="#discovery"
               >
                 Hire Me
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                as="a"
+                href="/resume-new.pdf"
+                download="Touqeer_Mohammad_Resume.pdf"
+              >
+                <Download className="w-5 h-5" />
+                Download Resume
               </Button>
             </motion.div>
 

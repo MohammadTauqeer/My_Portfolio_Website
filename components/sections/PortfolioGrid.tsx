@@ -83,10 +83,13 @@ export default function PortfolioGrid() {
         ind.includes('health') ||
         ind.includes('fitness') ||
         ind.includes('human resources') ||
+        ind.includes('web') ||
+        ind.includes('platform') ||
         (ind.includes('education') && !ind.includes('utility') && !ind.includes('tech')) ||
         title.includes('gym') ||
         title.includes('school') ||
-        title.includes('job board')
+        title.includes('job board') ||
+        title.includes('portfolio')
       )
     }
     if (category === 'Productivity & Tools') {

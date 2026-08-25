@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: 'SKILLS & EXPERTISE', href: '#skills' },
     { name: 'PROJECT DISCOVERY', href: '#discovery' },
     { name: 'RESUME', href: '#resume' },
+    { name: 'CERTIFICATIONS', href: '#certifications' },
   ]
 
   return (
