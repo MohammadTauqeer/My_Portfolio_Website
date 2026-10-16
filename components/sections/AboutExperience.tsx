@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Briefcase, GraduationCap, Calendar, Building2 } from 'lucide-react'
+import { experiences, educations } from '@/lib/data'
 
 export default function AboutExperience() {
   return (
@@ -24,7 +26,7 @@ export default function AboutExperience() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-slate-400 text-lg max-w-2xl mx-auto"
         >
-          Discover my journey and professional experience
+          Discover my journey, current professional roles, and academic path
         </motion.p>
       </div>
 
@@ -57,7 +59,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I have spent the last few years mastering the art of building scalable digital solutions. My journey includes a rigorous few months Remote Internship at Aykays, where I excelled as a Frontend Developer, delivering high-quality user interfaces.
+              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I am currently working as a Frontend Developer & Team Collaborator (Independent, January 2026 – Present), collaborating with a dedicated team of developers to acquire, build, and deliver high-performance frontend web projects for clients. My journey also includes a rigorous Remote Internship at Aykays, where I excelled as a Frontend Developer delivering high-quality user interfaces.
             </motion.p>
 
             <motion.p
@@ -66,7 +68,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I am currently an advanced student at the Governor Sindh Initiative (GIAIC), specializing in Agentic AI in Quarter 4. My expertise is rooted in building specialized tools like an AI Book with RAG Chatbot (Hackathon 1) for intelligent content interaction and a robust Todo Management System (Hackathon 2). My experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools.
+              I am currently an advanced student at the Governor Sindh Initiative for AI & Cloud Computing (GIAIC, February 2024 – Ongoing), specializing in Agentic AI in Quarter 4. My expertise is rooted in building specialized tools like an AI Book with RAG Chatbot (Hackathon 1) for intelligent content interaction and a robust Todo Management System (Hackathon 2). My experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools.
             </motion.p>
 
             <motion.p
@@ -111,7 +113,7 @@ export default function AboutExperience() {
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/60 group-hover:border-purple-400 transition-all duration-500 bg-slate-900/50">
                 <Image
                   src="/touqeer.png"
-                  alt="Mohammad Touqeer - About & Experience"
+                  alt="Mohammad Tauqeer - About & Experience"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 320px, (max-width: 1024px) 384px, 450px"
@@ -140,6 +142,155 @@ export default function AboutExperience() {
                 </span>
               </div>
             </motion.div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Experience & Education Structured Grid */}
+      <div className="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Work Experience */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-3 pb-2 border-b border-purple-500/20">
+            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
+              <Briefcase className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white tracking-tight">
+                Work Experience
+              </h3>
+              <p className="text-xs text-slate-400 font-mono">Professional &amp; Client Projects</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {experiences.map((exp) => (
+              <div
+                key={exp.id}
+                className={`relative p-6 rounded-2xl border transition-all duration-300 ${
+                  exp.current
+                    ? 'bg-slate-900/80 border-purple-500/50 shadow-lg shadow-purple-950/40 hover:border-purple-400'
+                    : 'bg-slate-900/40 border-slate-800 hover:border-purple-500/30'
+                }`}
+              >
+                {exp.current && (
+                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Current Experience
+                  </div>
+                )}
+                
+                <h4 className="text-lg font-bold text-white pr-0 sm:pr-32">
+                  {exp.role}
+                </h4>
+
+                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mt-2 mb-3">
+                  <span className="flex items-center gap-1.5 text-purple-300 font-medium">
+                    <Building2 className="w-4 h-4 text-purple-400" />
+                    {exp.company}
+                  </span>
+                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-400">
+                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                    {exp.timeline}
+                  </span>
+                </div>
+
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  {exp.description}
+                </p>
+
+                {exp.skills && exp.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                    {exp.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-950/40 border border-purple-500/20 text-purple-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Education & Training */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-3 pb-2 border-b border-purple-500/20">
+            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
+              <GraduationCap className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white tracking-tight">
+                Education &amp; Training
+              </h3>
+              <p className="text-xs text-slate-400 font-mono">Academic &amp; Specialized Programs</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {educations.map((edu) => (
+              <div
+                key={edu.id}
+                className={`relative p-6 rounded-2xl border transition-all duration-300 ${
+                  edu.current
+                    ? 'bg-slate-900/80 border-purple-500/50 shadow-lg shadow-purple-950/40 hover:border-purple-400'
+                    : 'bg-slate-900/40 border-slate-800 hover:border-purple-500/30'
+                }`}
+              >
+                {edu.current && (
+                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-medium">
+                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                    Ongoing
+                  </div>
+                )}
+
+                <h4 className="text-lg font-bold text-white pr-0 sm:pr-24">
+                  {edu.degree}
+                </h4>
+
+                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mt-2 mb-3">
+                  <span className="flex items-center gap-1.5 text-purple-300 font-medium">
+                    <Building2 className="w-4 h-4 text-purple-400" />
+                    {edu.institution}
+                  </span>
+                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-400">
+                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                    {edu.timeline}
+                  </span>
+                </div>
+
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  {edu.description}
+                </p>
+
+                {edu.details && edu.details.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                    {edu.details.map((detail) => (
+                      <span
+                        key={detail}
+                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-950/40 border border-purple-500/20 text-purple-300"
+                      >
+                        {detail}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

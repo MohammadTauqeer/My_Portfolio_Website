@@ -398,3 +398,56 @@ export const blogPosts: BlogPost[] = [
     slug: "caching-strategies-guide"
   }
 ]
+
+export interface ExperienceItem {
+  id: number
+  role: string
+  company: string
+  timeline: string
+  current?: boolean
+  description: string
+  skills?: string[]
+}
+
+export interface EducationItem {
+  id: number
+  degree: string
+  institution: string
+  timeline: string
+  current?: boolean
+  description: string
+  details?: string[]
+}
+
+export const experiences: ExperienceItem[] = [
+  {
+    id: 1,
+    role: "Frontend Developer & Team Collaborator",
+    company: "Independent",
+    timeline: "January 2026 - Present",
+    current: true,
+    description: "Collaborating with a dedicated team of developers to acquire, build, and deliver high-performance frontend web projects for clients. Specializing in translating client requirements into scalable, responsive interfaces using Next.js, React, and Tailwind CSS while managing the end-to-end project delivery lifecycle.",
+    skills: ["Next.js", "React", "Tailwind CSS", "Team Leadership", "Client Delivery"]
+  },
+  {
+    id: 2,
+    role: "Frontend Developer Intern",
+    company: "Aykays",
+    timeline: "Remote Internship",
+    current: false,
+    description: "Delivered high-quality responsive user interfaces during a rigorous remote internship, optimizing web components for performance and user experience.",
+    skills: ["Frontend Development", "UI/UX", "Responsive Design"]
+  }
+]
+
+export const educations: EducationItem[] = [
+  {
+    id: 1,
+    degree: "Certified Agentic AI & Cloud Computing",
+    institution: "Governor Sindh Initiative for AI & Cloud Computing (GIAIC)",
+    timeline: "February 2024 - Ongoing",
+    current: true,
+    description: "Advanced student specializing in Agentic AI (Quarter 4), RAG architectures, OpenAI SDK, MCP Servers, and autonomous multi-agent systems.",
+    details: ["Quarter 4 Agentic AI Specialization", "Hackathon 1: AI Book RAG Chatbot", "Hackathon 0: My AI Employee"]
+  }
+]

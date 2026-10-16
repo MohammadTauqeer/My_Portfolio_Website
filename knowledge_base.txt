@@ -1,0 +1,28 @@
+# Mohammad Tauqeer - Professional Portfolio Knowledge Base
+
+## Profile Summary
+- **Name**: Mohammad Tauqeer
+- **Role**: Full-Stack Developer & Agentic AI Developer
+- **Location**: Pakistan
+- **Core Competencies**: Modern Web Apps (Next.js, React, TypeScript, Tailwind CSS), Agentic AI Workflows (OpenAI SDK, MCP Servers, LangChain, Pinecone RAG), Full Project Lifecycle Delivery.
+
+## Experience
+1. **Frontend Developer & Team Collaborator**
+   - **Company**: Independent
+   - **Timeline**: January 2026 - Present (Current Experience)
+   - **Description**: Collaborating with a dedicated team of developers to acquire, build, and deliver high-performance frontend web projects for clients. Specializing in translating client requirements into scalable, responsive interfaces using Next.js, React, and Tailwind CSS while managing the end-to-end project delivery lifecycle.
+   - **Key Tech**: Next.js, React, Tailwind CSS, TypeScript, Team Collaboration.
+
+2. **Frontend Developer Intern**
+   - **Company**: Aykays
+   - **Timeline**: Remote Internship
+   - **Description**: Delivered high-quality responsive user interfaces during a rigorous remote internship, optimizing web components for performance and user experience.
+
+## Education & Specialized Programs
+1. **Governor Sindh Initiative for AI & Cloud Computing (GIAIC)**
+   - **Timeline**: February 2024 - Ongoing
+   - **Details**: Advanced student specializing in Agentic AI (Quarter 4). Expertise in developing RAG Chatbots, AI Agents, MCP Servers, and OpenAI SDK workflows.
+   - **Hackathons**:
+     - Hackathon 0: My AI Employee (Autonomous workflow automation with Gmail, LinkedIn, and Odoo ERP)
+     - Hackathon 1: Physical AI Book RAG Chatbot
+     - Hackathon 2: Advanced Todo Management System
