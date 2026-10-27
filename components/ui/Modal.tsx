@@ -39,19 +39,19 @@ export default function Modal({ isOpen, onClose, children, maxWidth = '4xl' }: M
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className={`glass-effect ${maxWidthClasses[maxWidth]} w-full p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto`}
+            exit={{ scale: 0.95, opacity: 0 }}
+            className={`bg-white/95 dark:bg-slate-950/95 text-slate-900 dark:text-white border border-purple-200 dark:border-purple-500/30 ${maxWidthClasses[maxWidth]} w-full p-6 sm:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto shadow-2xl backdrop-blur-xl`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 hover:bg-slate-800 rounded-lg transition-colors"
+              className="absolute top-4 right-4 p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-purple-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
               aria-label="Close modal"
             >
               <X className="w-6 h-6" />

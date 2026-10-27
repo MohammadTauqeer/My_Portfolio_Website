@@ -260,7 +260,7 @@ export default function PortfolioGrid() {
       {/* Category Filter Pills & Carousel Controls Header */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
         {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 bg-slate-900/60 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 shadow-lg shadow-purple-950/20 max-w-full overflow-x-auto">
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md p-1.5 rounded-2xl border border-purple-200/80 dark:border-white/10 shadow-lg shadow-purple-500/5 dark:shadow-purple-950/20 max-w-full overflow-x-auto">
           {CATEGORIES.map((category) => {
             const count = projects.filter((p) => filterProject(p, category)).length
             const isActive = activeCategory === category
@@ -271,13 +271,13 @@ export default function PortfolioGrid() {
                 className={`relative px-4 py-2 rounded-xl text-xs md:text-sm font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                   isActive
                     ? 'text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-purple-100/60 dark:hover:bg-slate-800/40'
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeCategoryBg"
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-emerald-600/80 rounded-xl border border-purple-400/40 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl border border-purple-400/40 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -286,7 +286,7 @@ export default function PortfolioGrid() {
                   className={`relative z-10 px-1.5 py-0.5 rounded-full text-[10px] font-mono ${
                     isActive
                       ? 'bg-white/20 text-white'
-                      : 'bg-slate-800 text-slate-400'
+                      : 'bg-purple-100 dark:bg-slate-800 text-purple-700 dark:text-slate-400'
                   }`}
                 >
                   {count}
@@ -297,10 +297,10 @@ export default function PortfolioGrid() {
         </div>
 
         {/* Slider Controls Toolbar */}
-        <div className="flex items-center gap-4 bg-slate-900/60 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/10 shadow-lg">
+        <div className="flex items-center gap-4 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md px-4 py-2 rounded-2xl border border-purple-200/80 dark:border-white/10 shadow-lg">
           {/* Item Counter */}
-          <div className="text-xs font-mono text-slate-400 flex items-center gap-1.5 pr-2 border-r border-slate-800">
-            <span className="text-emerald-400 font-bold">
+          <div className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5 pr-2 border-r border-purple-200 dark:border-slate-800">
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold">
               {String(activeIndex + 1).padStart(2, '0')}
             </span>
             <span>/</span>
@@ -312,8 +312,8 @@ export default function PortfolioGrid() {
             onClick={() => setIsAutoplay(!isAutoplay)}
             className={`p-2 rounded-xl transition-all duration-300 text-xs flex items-center gap-1.5 ${
               isAutoplay
-                ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
-                : 'bg-slate-800/60 text-slate-400 hover:text-slate-200 border border-slate-700/50'
+                ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+                : 'bg-purple-100/70 dark:bg-slate-800/60 text-slate-700 dark:text-slate-400 hover:text-purple-900 dark:hover:text-slate-200 border border-purple-200 dark:border-slate-700/50'
             }`}
             title={isAutoplay ? 'Pause auto-sliding' : 'Enable auto-sliding'}
             aria-label={isAutoplay ? 'Pause autoplay' : 'Start autoplay'}
@@ -331,8 +331,8 @@ export default function PortfolioGrid() {
               disabled={!canScrollLeft}
               className={`p-2 rounded-xl border transition-all duration-300 ${
                 canScrollLeft
-                  ? 'bg-slate-800 hover:bg-purple-600/30 text-white border-slate-700 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] active:scale-95'
-                  : 'bg-slate-900/40 text-slate-600 border-slate-800/40 cursor-not-allowed'
+                  ? 'bg-white dark:bg-slate-800 hover:bg-purple-100 dark:hover:bg-purple-600/30 text-slate-800 dark:text-white border-purple-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500/50 hover:shadow-md active:scale-95'
+                  : 'bg-purple-50 dark:bg-slate-900/40 text-slate-400 dark:text-slate-600 border-purple-100 dark:border-slate-800/40 cursor-not-allowed'
               }`}
               aria-label="Previous project slide"
             >
@@ -343,8 +343,8 @@ export default function PortfolioGrid() {
               disabled={!canScrollRight}
               className={`p-2 rounded-xl border transition-all duration-300 ${
                 canScrollRight
-                  ? 'bg-slate-800 hover:bg-emerald-600/30 text-white border-slate-700 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] active:scale-95'
-                  : 'bg-slate-900/40 text-slate-600 border-slate-800/40 cursor-not-allowed'
+                  ? 'bg-white dark:bg-slate-800 hover:bg-purple-100 dark:hover:bg-emerald-600/30 text-slate-800 dark:text-white border-purple-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-emerald-500/50 hover:shadow-md active:scale-95'
+                  : 'bg-purple-50 dark:bg-slate-900/40 text-slate-400 dark:text-slate-600 border-purple-100 dark:border-slate-800/40 cursor-not-allowed'
               }`}
               aria-label="Next project slide"
             >
@@ -358,25 +358,25 @@ export default function PortfolioGrid() {
       <div className="relative group">
         {/* Left Fade Gradient Mask */}
         <div
-          className={`absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-black via-black/60 to-transparent z-10 pointer-events-none transition-opacity duration-300 ${
+          className={`absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#faf8fc] dark:from-black via-[#faf8fc]/80 dark:via-black/60 to-transparent z-10 pointer-events-none transition-opacity duration-300 ${
             canScrollLeft ? 'opacity-100' : 'opacity-0'
           }`}
         />
 
         {/* Right Fade Gradient Mask */}
         <div
-          className={`absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black via-black/60 to-transparent z-10 pointer-events-none transition-opacity duration-300 ${
+          className={`absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#faf8fc] dark:from-black via-[#faf8fc]/80 dark:via-black/60 to-transparent z-10 pointer-events-none transition-opacity duration-300 ${
             canScrollRight ? 'opacity-100' : 'opacity-0'
           }`}
         />
 
-        {/* Scrollable Container with Smooth Snapping & Mouse Drag */}
+        {/* The Horizontal Slider Strip */}
         <div
           ref={sliderRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          className={`flex gap-6 overflow-x-auto snap-x snap-mandatory py-4 px-2 select-none scroll-smooth scrollbar-none transition-all duration-150 ${
+          className={`flex gap-6 overflow-x-auto py-4 px-2 snap-x snap-mandatory select-none ${
             isDown ? 'cursor-grabbing' : 'cursor-grab'
           } [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -391,16 +391,16 @@ export default function PortfolioGrid() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="project-slider-card flex-shrink-0 snap-center w-[85vw] sm:w-[380px] md:w-[410px] lg:w-[430px] group/card relative bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-300 flex flex-col justify-between"
+                className="project-slider-card flex-shrink-0 snap-center w-[85vw] sm:w-[380px] md:w-[410px] lg:w-[430px] group/card relative bg-white/95 dark:bg-slate-900/70 backdrop-blur-xl border border-purple-200/80 dark:border-white/10 rounded-2xl overflow-hidden hover:border-purple-400 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-purple-200/50 dark:hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-300 flex flex-col justify-between"
                 onClick={() => handleCardClick(project.id)}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Browser Mockup Header & Frame */}
                 <div className="relative w-full p-4 pb-0">
-                  <div className="bg-slate-800/90 rounded-t-xl shadow-2xl overflow-hidden border border-white/5">
+                  <div className="bg-slate-100 dark:bg-slate-800/90 rounded-t-xl shadow-md dark:shadow-2xl overflow-hidden border border-purple-200/60 dark:border-white/5">
                     {/* Browser Top Bar */}
-                    <div className="bg-slate-700/80 px-4 py-2.5 flex items-center justify-between gap-2 border-b border-slate-600/30">
+                    <div className="bg-slate-200/70 dark:bg-slate-700/80 px-4 py-2.5 flex items-center justify-between gap-2 border-b border-purple-200/60 dark:border-slate-600/30">
                       {/* Mac-style Window Dots */}
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -409,8 +409,8 @@ export default function PortfolioGrid() {
                       </div>
 
                       {/* Address Bar */}
-                      <div className="flex-1 max-w-[200px] sm:max-w-[240px] bg-slate-900/60 rounded px-2.5 py-1 text-[11px] text-slate-400 flex items-center gap-1.5 border border-slate-700/40">
-                        <svg className="w-2.5 h-2.5 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="flex-1 max-w-[200px] sm:max-w-[240px] bg-white/90 dark:bg-slate-900/60 rounded px-2.5 py-1 text-[11px] text-slate-600 dark:text-slate-400 flex items-center gap-1.5 border border-purple-200/70 dark:border-slate-700/40">
+                        <svg className="w-2.5 h-2.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path
                             fillRule="evenodd"
                             d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
@@ -428,7 +428,7 @@ export default function PortfolioGrid() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="p-1 rounded-md text-emerald-400 hover:text-emerald-300 hover:bg-slate-600/50 transition-colors"
+                            className="p-1 rounded-md text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-purple-100 dark:hover:bg-slate-600/50 transition-colors"
                             title={project.docLabel || "View PDF Documentation"}
                             aria-label="View PDF Documentation"
                           >
@@ -442,7 +442,7 @@ export default function PortfolioGrid() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-600/50 transition-colors"
+                          className="p-1 rounded-md text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-purple-100 dark:hover:bg-slate-600/50 transition-colors"
                           title="View GitHub Repository"
                           aria-label="View source code on GitHub"
                         >
@@ -452,7 +452,7 @@ export default function PortfolioGrid() {
                     </div>
 
                     {/* Image Area with Zoom & Hover Actions */}
-                    <div className="relative w-full h-48 sm:h-52 bg-slate-950 overflow-hidden">
+                    <div className="relative w-full h-48 sm:h-52 bg-slate-100 dark:bg-slate-950 overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -511,7 +511,7 @@ export default function PortfolioGrid() {
                           }}
                           className="text-xs text-slate-300 hover:text-white underline underline-offset-4 transition-colors"
                         >
-                          Read Case Study & Details →
+                          Read Case Study &amp; Details →
                         </button>
                       </div>
                     </div>
@@ -523,17 +523,17 @@ export default function PortfolioGrid() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-2">
                       <h3
-                        className="text-xl font-bold text-white group-hover/card:text-purple-300 transition-colors duration-300 line-clamp-1"
+                        className="text-xl font-bold text-slate-900 dark:text-white group-hover/card:text-purple-600 dark:group-hover/card:text-purple-300 transition-colors duration-300 line-clamp-1"
                         style={{ fontFamily: 'var(--font-jetbrains)' }}
                       >
                         {project.title}
                       </h3>
-                      <span className="text-[11px] font-mono text-slate-500">
+                      <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
                         #{String(index + 1).padStart(2, '0')}
                       </span>
                     </div>
 
-                    <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
                   </div>
@@ -543,7 +543,7 @@ export default function PortfolioGrid() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 bg-slate-800/70 border border-slate-700/60 group-hover/card:border-purple-500/30 rounded-md text-[11px] text-slate-300 group-hover/card:text-purple-300 transition-colors"
+                        className="px-2.5 py-0.5 bg-purple-50 dark:bg-slate-800/70 border border-purple-200/80 dark:border-slate-700/60 group-hover/card:border-purple-400/50 rounded-md text-[11px] text-slate-700 dark:text-slate-300 group-hover/card:text-purple-700 dark:group-hover/card:text-purple-300 transition-colors"
                       >
                         {tag}
                       </span>
@@ -551,7 +551,7 @@ export default function PortfolioGrid() {
                   </div>
 
                   {/* Footer Action Buttons */}
-                  <div className="flex items-center gap-2 pt-2 border-t border-slate-800/80">
+                  <div className="flex items-center gap-2 pt-2 border-t border-purple-200/60 dark:border-slate-800/80">
                     <Button
                       variant="primary"
                       size="sm"
@@ -559,7 +559,7 @@ export default function PortfolioGrid() {
                         e.stopPropagation()
                         window.open(project.liveUrl, '_blank')
                       }}
-                      className="flex-1 bg-purple-500/10 hover:bg-purple-600 text-purple-300 hover:text-white border border-purple-500/30 font-semibold text-xs py-2"
+                      className="flex-1 bg-purple-500/10 hover:bg-purple-600 text-purple-700 dark:text-purple-300 hover:text-white border border-purple-300 dark:border-purple-500/30 font-semibold text-xs py-2"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       Live Demo
@@ -572,7 +572,7 @@ export default function PortfolioGrid() {
                           e.stopPropagation()
                           window.open(project.docUrl, '_blank')
                         }}
-                        className="bg-emerald-500/10 hover:bg-emerald-600 text-emerald-400 hover:text-slate-950 border border-emerald-500/30 font-semibold text-xs py-2 px-2.5"
+                        className="bg-emerald-500/10 hover:bg-emerald-600 text-emerald-600 dark:text-emerald-400 hover:text-slate-950 border border-emerald-500/30 font-semibold text-xs py-2 px-2.5"
                         title={project.docLabel || "View PDF Documentation"}
                       >
                         <FileText className="w-3.5 h-3.5" />
@@ -586,7 +586,7 @@ export default function PortfolioGrid() {
                         e.stopPropagation()
                         setSelectedProject(project.id)
                       }}
-                      className="flex-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold text-xs py-2"
+                      className="flex-1 bg-purple-100/70 dark:bg-slate-800/80 hover:bg-purple-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-300 border border-purple-200 dark:border-slate-700 font-semibold text-xs py-2"
                     >
                       Details
                     </Button>
@@ -601,8 +601,8 @@ export default function PortfolioGrid() {
       {/* Slider Footer Progress Bar & Interactive Dots */}
       <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
         {/* Swipe / Drag gesture cue */}
-        <div className="flex items-center gap-2 text-xs text-slate-500 order-2 sm:order-1">
-          <MoveHorizontal className="w-4 h-4 text-purple-400 animate-pulse" />
+        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 order-2 sm:order-1">
+          <MoveHorizontal className="w-4 h-4 text-purple-500 dark:text-purple-400 animate-pulse" />
           <span>Swipe, drag, or use arrow keys to navigate</span>
         </div>
 
@@ -615,7 +615,7 @@ export default function PortfolioGrid() {
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 activeIndex === idx
                   ? 'w-7 bg-gradient-to-r from-purple-500 to-violet-400 shadow-[0_0_8px_rgba(168,85,247,0.5)]'
-                  : 'w-2 bg-slate-800 hover:bg-slate-600'
+                  : 'w-2 bg-purple-200 dark:bg-slate-800 hover:bg-purple-300 dark:hover:bg-slate-600'
               }`}
               aria-label={`Jump to project slide ${idx + 1}`}
             />
@@ -623,7 +623,7 @@ export default function PortfolioGrid() {
         </div>
 
         {/* Scroll Progress Indicator Bar */}
-        <div className="w-full sm:w-32 bg-slate-800/80 rounded-full h-1.5 overflow-hidden border border-slate-700/50 order-3 hidden md:block">
+        <div className="w-full sm:w-32 bg-purple-100 dark:bg-slate-800/80 rounded-full h-1.5 overflow-hidden border border-purple-200 dark:border-slate-700/50 order-3 hidden md:block">
           <div
             className="h-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-violet-400 transition-all duration-150 rounded-full"
             style={{ width: `${scrollProgress}%` }}
@@ -642,10 +642,10 @@ export default function PortfolioGrid() {
               {/* Header */}
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <Badge variant="primary" className="bg-purple-500/20 border-purple-500/30 text-purple-300">
+                  <Badge variant="primary" className="bg-purple-500/20 border-purple-500/30 text-purple-700 dark:text-purple-300">
                     {project.industry}
                   </Badge>
-                  <Badge variant="success" className="bg-emerald-500/20 border-emerald-500/30 text-emerald-300">
+                  <Badge variant="success" className="bg-emerald-500/20 border-emerald-500/30 text-emerald-700 dark:text-emerald-300">
                     {project.performanceMetric.label}: {project.performanceMetric.value}
                   </Badge>
                   {project.docUrl && (
@@ -653,7 +653,7 @@ export default function PortfolioGrid() {
                       href={project.docUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold transition-colors"
                     >
                       <FileText className="w-3.5 h-3.5" />
                       <span>{project.docLabel || 'Documentation PDF'}</span>
@@ -662,12 +662,12 @@ export default function PortfolioGrid() {
                   )}
                 </div>
                 <h2
-                  className="text-3xl sm:text-4xl font-bold mb-3 text-white tracking-tight"
+                  className="text-3xl sm:text-4xl font-bold mb-3 text-slate-900 dark:text-white tracking-tight"
                   style={{ fontFamily: 'var(--font-jetbrains)' }}
                 >
                   {project.title}
                 </h2>
-                <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -675,23 +675,23 @@ export default function PortfolioGrid() {
               {/* Challenge & Solution Cards */}
               <div className="grid md:grid-cols-2 gap-4">
                 {/* Challenge */}
-                <div className="bg-slate-900/80 border border-red-500/20 rounded-xl p-5 shadow-lg">
+                <div className="bg-rose-50/70 dark:bg-slate-900/80 border border-rose-200 dark:border-red-500/20 rounded-xl p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-2">
-                    <AlertCircle className="w-4 h-4 text-red-400" />
-                    <h3 className="text-base font-bold text-red-400">The Challenge</h3>
+                    <AlertCircle className="w-4 h-4 text-red-500 dark:text-red-400" />
+                    <h3 className="text-base font-bold text-red-600 dark:text-red-400">The Challenge</h3>
                   </div>
-                  <p className="text-slate-300 text-sm leading-relaxed">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                     {project.challenge}
                   </p>
                 </div>
 
                 {/* Solution */}
-                <div className="bg-slate-900/80 border border-emerald-500/20 rounded-xl p-5 shadow-lg">
+                <div className="bg-emerald-50/70 dark:bg-slate-900/80 border border-emerald-200 dark:border-emerald-500/20 rounded-xl p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-2">
-                    <Lightbulb className="w-4 h-4 text-emerald-400" />
-                    <h3 className="text-base font-bold text-emerald-400">The Solution</h3>
+                    <Lightbulb className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <h3 className="text-base font-bold text-emerald-600 dark:text-emerald-400">The Solution</h3>
                   </div>
-                  <p className="text-slate-300 text-sm leading-relaxed">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -699,19 +699,17 @@ export default function PortfolioGrid() {
 
               {/* Key Features */}
               {project.features && project.features.length > 0 && (
-                <div className="bg-slate-900/60 border border-white/10 rounded-xl p-5">
+                <div className="bg-purple-50/60 dark:bg-slate-900/60 border border-purple-200 dark:border-white/10 rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <Zap className="w-4 h-4 text-purple-400" />
-                    <h3 className="text-base font-bold text-white">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-purple-200">
-                        Key Technical Features
-                      </span>
+                    <Zap className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                      <span>Key Technical Features</span>
                     </h3>
                   </div>
-                  <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-300">
+                  <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-700 dark:text-slate-300">
                     {project.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -721,14 +719,14 @@ export default function PortfolioGrid() {
 
               {/* Technologies */}
               <div>
-                <h3 className="text-sm font-semibold mb-2.5 text-purple-300/80 uppercase tracking-wider">
+                <h3 className="text-sm font-semibold mb-2.5 text-purple-700 dark:text-purple-300/80 uppercase tracking-wider">
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-slate-800/80 border border-purple-500/20 rounded-lg text-xs font-mono text-purple-300"
+                      className="px-3 py-1 bg-purple-100 dark:bg-slate-800/80 border border-purple-300 dark:border-purple-500/20 rounded-lg text-xs font-mono text-purple-800 dark:text-purple-300"
                     >
                       {tag}
                     </span>
@@ -737,7 +735,7 @@ export default function PortfolioGrid() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-800">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-purple-200 dark:border-slate-800">
                 <Button
                   variant="primary"
                   size="lg"
@@ -752,9 +750,9 @@ export default function PortfolioGrid() {
                     variant="secondary"
                     size="lg"
                     onClick={() => window.open(project.docUrl, '_blank')}
-                    className="flex-1 bg-purple-600/20 hover:bg-purple-600 text-purple-200 hover:text-white border border-purple-500/40 font-semibold"
+                    className="flex-1 bg-purple-600/20 hover:bg-purple-600 text-purple-800 dark:text-purple-200 hover:text-white border border-purple-400/40 font-semibold"
                   >
-                    <FileText className="w-5 h-5 text-emerald-400" />
+                    <FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     PDF Documentation
                   </Button>
                 )}
@@ -762,7 +760,7 @@ export default function PortfolioGrid() {
                   variant="secondary"
                   size="lg"
                   onClick={() => window.open(project.sourceUrl, '_blank')}
-                  className="flex-1 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold"
+                  className="flex-1 bg-purple-100 dark:bg-slate-800 hover:bg-purple-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-purple-300 dark:border-slate-700 font-semibold"
                 >
                   <Github className="w-5 h-5" />
                   View Source Code
@@ -771,7 +769,7 @@ export default function PortfolioGrid() {
                   variant="ghost"
                   size="lg"
                   onClick={() => setSelectedProject(null)}
-                  className="sm:w-auto px-6 text-slate-400 hover:text-white"
+                  className="sm:w-auto px-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 >
                   Close
                 </Button>

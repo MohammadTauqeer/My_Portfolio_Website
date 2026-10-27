@@ -28,8 +28,8 @@ export default function Hero() {
   const [isPaused, setIsPaused] = useState(false)
 
   const texts = [
-    { text: YOUR_NAME, color: 'text-white', isBold: true, isRole: false },
-    { text: YOUR_ROLE, color: 'text-slate-200', isBold: false, isRole: true }
+    { text: YOUR_NAME, isBold: true, isRole: false },
+    { text: YOUR_ROLE, isBold: false, isRole: true }
   ]
 
   useEffect(() => {
@@ -83,9 +83,9 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 lg:px-8 relative overflow-hidden scroll-mt-20 pt-20">
       {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-violet-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-violet-600/10 dark:bg-violet-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-600/10 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Content Container */}
@@ -105,7 +105,7 @@ export default function Hero() {
               
               {/* Image container */}
               <div className="relative">
-                <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500/50 transition-colors duration-500">
+                <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500/50 transition-colors duration-500 bg-white/40 dark:bg-slate-900/50">
                   <Image
                     src={PROFILE_IMAGE_URL}
                     alt={`${YOUR_NAME} - Professional Profile`}
@@ -131,7 +131,7 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="absolute -bottom-4 left-1/2 -translate-x-1/2"
               >
-                <Badge variant="primary" className="shadow-lg shadow-purple-950/50">
+                <Badge variant="primary" className="shadow-lg shadow-purple-950/20 dark:shadow-purple-950/50">
                   Available for Projects
                 </Badge>
               </motion.div>
@@ -152,7 +152,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-4"
             >
-              <span className="text-purple-300 text-lg font-medium tracking-wide">Hello, I{"'"}m</span>
+              <span className="text-purple-600 dark:text-purple-300 text-lg font-medium tracking-wide">Hello, I{"'"}m</span>
             </motion.div>
 
             {/* Name with Infinite Looping Typewriter Effect */}
@@ -171,7 +171,7 @@ export default function Hero() {
               >
                 {textIndex === 0 ? (
                   <>
-                    <span className="text-white">
+                    <span className="text-slate-900 dark:text-white transition-colors">
                       {displayedText.length <= 9
                         ? displayedText
                         : displayedText.slice(0, 9)}
@@ -184,7 +184,7 @@ export default function Hero() {
                   </>
                 ) : (
                   <>
-                    <span className="text-white">
+                    <span className="text-slate-900 dark:text-white transition-colors">
                       {displayedText.includes('Developer') 
                         ? displayedText.split('Developer')[0]
                         : displayedText}
@@ -197,7 +197,7 @@ export default function Hero() {
                   </>
                 )}
                 <span 
-                  className="inline-block ml-1 text-purple-400"
+                  className="inline-block ml-1 text-purple-600 dark:text-purple-400"
                   style={{ animation: 'blink 1s step-end infinite' }}
                 >
                   |
@@ -210,7 +210,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed transition-colors"
             >
               {YOUR_BIO}
             </motion.p>
@@ -262,7 +262,7 @@ export default function Hero() {
                   href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass-effect hover:bg-slate-800/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-blue-500/50"
+                  className="w-12 h-12 rounded-full glass-effect hover:bg-purple-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-purple-500/50"
                   aria-label="GitHub Profile"
                 >
                   <Github className="w-5 h-5" />
@@ -273,7 +273,7 @@ export default function Hero() {
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass-effect hover:bg-slate-800/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-blue-500/50"
+                  className="w-12 h-12 rounded-full glass-effect hover:bg-purple-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-purple-500/50"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -282,7 +282,7 @@ export default function Hero() {
               {SOCIAL_LINKS.email && (
                 <a
                   href={`mailto:${SOCIAL_LINKS.email}`}
-                  className="w-12 h-12 rounded-full glass-effect hover:bg-slate-800/50 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-blue-500/50"
+                  className="w-12 h-12 rounded-full glass-effect hover:bg-purple-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-purple-500/50"
                   aria-label="Email Contact"
                 >
                   <Mail className="w-5 h-5" />
@@ -301,10 +301,10 @@ export default function Hero() {
         >
           <a 
             href="#projects" 
-            className="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors"
+            className="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-800 dark:hover:text-slate-300 transition-colors"
             aria-label="Scroll to projects section"
           >
-            <span className="text-sm">Scroll to explore</span>
+            <span className="text-sm font-medium">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 animate-bounce" />
           </a>
         </motion.div>

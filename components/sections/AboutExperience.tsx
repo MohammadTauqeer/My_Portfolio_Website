@@ -16,7 +16,7 @@ export default function AboutExperience() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
         >
-          <span className="text-white">About & </span>
+          <span className="text-slate-900 dark:text-white">About & </span>
           <span className="gradient-accent">Experience</span>
         </motion.h2>
         <motion.p
@@ -24,7 +24,7 @@ export default function AboutExperience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-slate-400 text-lg max-w-2xl mx-auto"
+          className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto"
         >
           Discover my journey, current professional roles, and academic path
         </motion.p>
@@ -48,18 +48,18 @@ export default function AboutExperience() {
               textShadow: '0 0 25px rgba(168, 85, 247, 0.25)'
             }}
           >
-            <span className="text-white">My Journey </span>
+            <span className="text-slate-900 dark:text-white">My Journey </span>
             <span className="gradient-accent">& Expertise</span>
           </h3>
 
-          <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
+          <div className="space-y-4 text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I am currently working as a Frontend Developer & Team Collaborator (Independent, January 2026 – Present), collaborating with a dedicated team of developers to acquire, build, and deliver high-performance frontend web projects for clients. My journey also includes a rigorous Remote Internship at Aykays, where I excelled as a Frontend Developer delivering high-quality user interfaces.
+              As a dedicated Full-Stack and Agentic AI Developer based in Pakistan, I am currently working as a Frontend Developer &amp; Team Collaborator (Independent, January 2026 – Present), collaborating with a dedicated team of developers to acquire, build, and deliver high-performance frontend web projects for clients. My journey also includes a rigorous Remote Internship at Aykays, where I excelled as a Frontend Developer delivering high-quality user interfaces.
             </motion.p>
 
             <motion.p
@@ -68,7 +68,7 @@ export default function AboutExperience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I am currently an advanced student at the Governor Sindh Initiative for AI & Cloud Computing (GIAIC, February 2024 – Ongoing), specializing in Agentic AI in Quarter 4. My expertise is rooted in building specialized tools like an AI Book with RAG Chatbot (Hackathon 1) for intelligent content interaction and a robust Todo Management System (Hackathon 2). My experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools.
+              I am currently an advanced student at the Governor Sindh Initiative for AI &amp; Cloud Computing (GIAIC, February 2024 – Ongoing), specializing in Agentic AI in Quarter 4. My expertise is rooted in building specialized tools like an AI Book with RAG Chatbot (Hackathon 1) for intelligent content interaction and a robust Todo Management System (Hackathon 2). My experience is further solidified by participating in multiple Hackathons (Phase 0 to 5), where I built complex projects like AI Humanoid systems and real-time collaborative tools.
             </motion.p>
 
             <motion.p
@@ -110,7 +110,7 @@ export default function AboutExperience() {
               <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 to-violet-400 rounded-2xl opacity-70 blur-sm"></div>
               
               {/* Main image container */}
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/60 group-hover:border-purple-400 transition-all duration-500 bg-slate-900/50">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-2 border-purple-500/60 group-hover:border-purple-400 transition-all duration-500 bg-white/40 dark:bg-slate-900/50">
                 <Image
                   src="/touqeer.png"
                   alt="Mohammad Tauqeer - About & Experience"
@@ -136,8 +136,8 @@ export default function AboutExperience() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="absolute -bottom-4 left-1/2 -translate-x-1/2"
             >
-              <div className="px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-purple-500/50 rounded-full shadow-lg shadow-purple-500/20">
-                <span className="text-purple-300 text-sm font-medium font-mono">
+              <div className="px-4 py-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-purple-300 dark:border-purple-500/50 rounded-full shadow-lg shadow-purple-500/20">
+                <span className="text-purple-700 dark:text-purple-300 text-sm font-medium font-mono">
                   Agentic AI Developer
                 </span>
               </div>
@@ -156,15 +156,15 @@ export default function AboutExperience() {
           transition={{ duration: 0.6 }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-3 pb-2 border-b border-purple-500/20">
-            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
+          <div className="flex items-center gap-3 pb-2 border-b border-purple-200 dark:border-purple-500/20">
+            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-400">
               <Briefcase className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 Work Experience
               </h3>
-              <p className="text-xs text-slate-400 font-mono">Professional &amp; Client Projects</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Professional &amp; Client Projects</p>
             </div>
           </div>
 
@@ -174,42 +174,42 @@ export default function AboutExperience() {
                 key={exp.id}
                 className={`relative p-6 rounded-2xl border transition-all duration-300 ${
                   exp.current
-                    ? 'bg-slate-900/80 border-purple-500/50 shadow-lg shadow-purple-950/40 hover:border-purple-400'
-                    : 'bg-slate-900/40 border-slate-800 hover:border-purple-500/30'
+                    ? 'bg-white/95 dark:bg-slate-900/80 border-purple-400 dark:border-purple-500/50 shadow-md shadow-purple-500/10 dark:shadow-purple-950/40 hover:border-purple-500'
+                    : 'bg-white/70 dark:bg-slate-900/40 border-purple-200/70 dark:border-slate-800 hover:border-purple-400 dark:hover:border-purple-500/30 shadow-sm'
                 }`}
               >
                 {exp.current && (
-                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     Current Experience
                   </div>
                 )}
                 
-                <h4 className="text-lg font-bold text-white pr-0 sm:pr-32">
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white pr-0 sm:pr-32">
                   {exp.role}
                 </h4>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mt-2 mb-3">
-                  <span className="flex items-center gap-1.5 text-purple-300 font-medium">
-                    <Building2 className="w-4 h-4 text-purple-400" />
+                <div className="flex flex-wrap items-center gap-4 text-sm mt-2 mb-3">
+                  <span className="flex items-center gap-1.5 text-purple-700 dark:text-purple-300 font-medium">
+                    <Building2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                     {exp.company}
                   </span>
-                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-400">
-                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-500 dark:text-slate-400">
+                    <Calendar className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {exp.timeline}
                   </span>
                 </div>
 
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   {exp.description}
                 </p>
 
                 {exp.skills && exp.skills.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-purple-200/50 dark:border-slate-800/80">
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-950/40 border border-purple-500/20 text-purple-300"
+                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-100/70 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/20 text-purple-700 dark:text-purple-300"
                       >
                         {skill}
                       </span>
@@ -229,15 +229,15 @@ export default function AboutExperience() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-3 pb-2 border-b border-purple-500/20">
-            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
+          <div className="flex items-center gap-3 pb-2 border-b border-purple-200 dark:border-purple-500/20">
+            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-400">
               <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 Education &amp; Training
               </h3>
-              <p className="text-xs text-slate-400 font-mono">Academic &amp; Specialized Programs</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Academic &amp; Specialized Programs</p>
             </div>
           </div>
 
@@ -247,42 +247,42 @@ export default function AboutExperience() {
                 key={edu.id}
                 className={`relative p-6 rounded-2xl border transition-all duration-300 ${
                   edu.current
-                    ? 'bg-slate-900/80 border-purple-500/50 shadow-lg shadow-purple-950/40 hover:border-purple-400'
-                    : 'bg-slate-900/40 border-slate-800 hover:border-purple-500/30'
+                    ? 'bg-white/95 dark:bg-slate-900/80 border-purple-400 dark:border-purple-500/50 shadow-md shadow-purple-500/10 dark:shadow-purple-950/40 hover:border-purple-500'
+                    : 'bg-white/70 dark:bg-slate-900/40 border-purple-200/70 dark:border-slate-800 hover:border-purple-400 dark:hover:border-purple-500/30 shadow-sm'
                 }`}
               >
                 {edu.current && (
-                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-medium">
-                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                  <div className="sm:absolute sm:top-5 sm:right-5 inline-flex items-center gap-1.5 px-3 py-1 mb-3 sm:mb-0 rounded-full bg-purple-100 dark:bg-purple-500/10 border border-purple-300 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 text-xs font-mono font-medium">
+                    <span className="w-2 h-2 rounded-full bg-purple-600 dark:bg-purple-400 animate-pulse" />
                     Ongoing
                   </div>
                 )}
 
-                <h4 className="text-lg font-bold text-white pr-0 sm:pr-24">
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white pr-0 sm:pr-24">
                   {edu.degree}
                 </h4>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mt-2 mb-3">
-                  <span className="flex items-center gap-1.5 text-purple-300 font-medium">
-                    <Building2 className="w-4 h-4 text-purple-400" />
+                <div className="flex flex-wrap items-center gap-4 text-sm mt-2 mb-3">
+                  <span className="flex items-center gap-1.5 text-purple-700 dark:text-purple-300 font-medium">
+                    <Building2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                     {edu.institution}
                   </span>
-                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-400">
-                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="flex items-center gap-1.5 font-mono text-xs text-slate-500 dark:text-slate-400">
+                    <Calendar className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {edu.timeline}
                   </span>
                 </div>
 
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   {edu.description}
                 </p>
 
                 {edu.details && edu.details.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-purple-200/50 dark:border-slate-800/80">
                     {edu.details.map((detail) => (
                       <span
                         key={detail}
-                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-950/40 border border-purple-500/20 text-purple-300"
+                        className="px-2.5 py-0.5 text-xs font-mono rounded-md bg-purple-100/70 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/20 text-purple-700 dark:text-purple-300"
                       >
                         {detail}
                       </span>

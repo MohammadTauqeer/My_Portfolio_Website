@@ -58,22 +58,21 @@ export default function ChatBot() {
       })
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to fetch response")
+        throw new Error("Failed to fetch response")
       }
 
       const data = await response.json()
-      const botResponse: Message = {
+      const newBotMessage: Message = {
         id: Date.now() + 1,
-        text: data.text,
+        text: data.reply || "Sorry, I couldn't process your request right now. Please reach out via email or LinkedIn!",
         sender: 'bot'
       }
-      setMessages(prev => [...prev, botResponse])
-    } catch (error) {
-      console.error("ChatBot Error:", error)
+
+      setMessages(prev => [...prev, newBotMessage])
+    } catch {
       const errorMessage: Message = {
         id: Date.now() + 1,
-        text: "I'm sorry, I'm having trouble connecting right now. Please try asking again or reach out to Tauqeer directly!",
+        text: "I couldn't connect to my AI server right now. Feel free to contact Mohammad directly via touqeerchamp@gmail.com!",
         sender: 'bot'
       }
       setMessages(prev => [...prev, errorMessage])
@@ -105,27 +104,27 @@ export default function ChatBot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 30 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] sm:w-96 md:w-[400px] h-[520px] max-h-[80vh] bg-[#090314]/95 backdrop-blur-2xl border border-purple-500/30 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(147,51,234,0.2)] flex flex-col overflow-hidden"
+            className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] sm:w-96 md:w-[400px] h-[520px] max-h-[80vh] bg-white/95 dark:bg-[#090314]/95 backdrop-blur-2xl border border-purple-200 dark:border-purple-500/30 rounded-3xl shadow-2xl shadow-purple-500/10 dark:shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(147,51,234,0.2)] flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="p-4 border-b border-purple-500/20 bg-gradient-to-r from-purple-950/40 via-black/60 to-purple-950/40 flex items-center justify-between">
+            <div className="p-4 border-b border-purple-200/80 dark:border-purple-500/20 bg-gradient-to-r from-purple-100/50 dark:from-purple-950/40 via-white/80 dark:via-black/60 to-purple-100/50 dark:to-purple-950/40 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-violet-700 p-[1.5px] shadow-md shadow-purple-950">
-                    <div className="w-full h-full rounded-xl bg-[#0c041c] flex items-center justify-center text-purple-300">
-                      <Sparkles className="w-4 h-4 text-purple-300" />
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-violet-700 p-[1.5px] shadow-sm">
+                    <div className="w-full h-full rounded-xl bg-purple-50 dark:bg-[#0c041c] flex items-center justify-center text-purple-600 dark:text-purple-300">
+                      <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-300" />
                     </div>
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#090314]" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#090314]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white text-sm tracking-tight flex items-center gap-1.5" style={{ fontFamily: 'var(--font-jetbrains)' }}>
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-sm tracking-tight flex items-center gap-1.5" style={{ fontFamily: 'var(--font-jetbrains)' }}>
                     <span>Tauqeer</span>
-                    <span className="text-purple-400">AI</span>
+                    <span className="text-purple-600 dark:text-purple-400">AI</span>
                   </h3>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Online • Roman Urdu & Eng</span>
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Online • Roman Urdu &amp; Eng</span>
                   </div>
                 </div>
               </div>
@@ -135,7 +134,7 @@ export default function ChatBot() {
                   type="button"
                   onClick={handleResetChat}
                   title="Reset conversation"
-                  className="p-2 text-slate-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-xl transition-colors"
+                  className="p-2 text-slate-500 dark:text-slate-400 hover:text-purple-700 dark:hover:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-500/10 rounded-xl transition-colors"
                 >
                   <RotateCcw className="w-4 h-4" />
                 </button>
@@ -143,7 +142,7 @@ export default function ChatBot() {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   title="Close chat"
-                  className="p-2 text-slate-400 hover:text-white hover:bg-purple-500/10 rounded-xl transition-colors"
+                  className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-purple-100 dark:hover:bg-purple-500/10 rounded-xl transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -152,8 +151,8 @@ export default function ChatBot() {
 
             {/* Quick Starter Suggestions (when chat is short) */}
             {messages.length <= 1 && (
-              <div className="px-4 pt-3 pb-1 border-b border-purple-500/10 bg-black/30">
-                <div className="text-[11px] font-mono text-purple-300/80 mb-2 flex items-center gap-1">
+              <div className="px-4 pt-3 pb-1 border-b border-purple-200/80 dark:border-purple-500/10 bg-purple-50/50 dark:bg-black/30">
+                <div className="text-[11px] font-mono text-purple-700 dark:text-purple-300/80 mb-2 flex items-center gap-1">
                   <MessageSquare className="w-3 h-3" />
                   <span>Suggested queries:</span>
                 </div>
@@ -163,7 +162,7 @@ export default function ChatBot() {
                       key={i}
                       type="button"
                       onClick={() => sendQuery(prompt)}
-                      className="text-left text-xs px-3 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-slate-300 hover:text-white hover:bg-purple-500/20 hover:border-purple-400/40 transition-all duration-200"
+                      className="text-left text-xs px-3 py-1.5 rounded-xl bg-purple-100/70 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-slate-700 dark:text-slate-300 hover:text-purple-900 dark:hover:text-white hover:bg-purple-200/60 dark:hover:bg-purple-500/20 hover:border-purple-300 dark:hover:border-purple-400/40 transition-all duration-200"
                     >
                       {prompt}
                     </button>
@@ -185,15 +184,15 @@ export default function ChatBot() {
                   <div className={`flex gap-2.5 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}>
                     <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-xs ${
                       msg.sender === 'user' 
-                        ? 'bg-purple-600/30 text-purple-300 border border-purple-500/30' 
-                        : 'bg-gradient-to-br from-purple-500/30 to-violet-700/30 text-purple-300 border border-purple-500/30'
+                        ? 'bg-purple-600/20 dark:bg-purple-600/30 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30' 
+                        : 'bg-gradient-to-br from-purple-500/20 to-violet-700/20 dark:from-purple-500/30 dark:to-violet-700/30 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30'
                     }`}>
                       {msg.sender === 'user' ? <User size={13} /> : <Bot size={13} />}
                     </div>
                     <div className={`p-3.5 rounded-2xl text-xs md:text-sm whitespace-pre-wrap leading-relaxed ${
                       msg.sender === 'user' 
-                        ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white rounded-tr-none shadow-md shadow-purple-950/40' 
-                        : 'bg-white/[0.04] border border-purple-500/20 text-slate-200 rounded-tl-none shadow-sm'
+                        ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white rounded-tr-none shadow-md shadow-purple-500/20 dark:shadow-purple-950/40' 
+                        : 'bg-purple-50 dark:bg-white/[0.04] border border-purple-200 dark:border-purple-500/20 text-slate-800 dark:text-slate-200 rounded-tl-none shadow-sm'
                     }`}>
                       {msg.text}
                     </div>
@@ -204,13 +203,13 @@ export default function ChatBot() {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="flex gap-2.5 max-w-[80%] items-center">
-                    <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 shrink-0">
+                    <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-300 shrink-0">
                       <Bot size={13} />
                     </div>
-                    <div className="px-4 py-3 rounded-2xl rounded-tl-none bg-white/[0.04] border border-purple-500/20 flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce"></div>
+                    <div className="px-4 py-3 rounded-2xl rounded-tl-none bg-purple-50 dark:bg-white/[0.04] border border-purple-200 dark:border-purple-500/20 flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                      <div className="w-1.5 h-1.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                      <div className="w-1.5 h-1.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-bounce"></div>
                     </div>
                   </div>
                 </div>
@@ -218,7 +217,7 @@ export default function ChatBot() {
             </div>
 
             {/* Input area */}
-            <div className="p-3.5 border-t border-purple-500/20 bg-black/60">
+            <div className="p-3.5 border-t border-purple-200 dark:border-purple-500/20 bg-white/90 dark:bg-black/60">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -227,13 +226,13 @@ export default function ChatBot() {
                   onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Ask in English ya Roman Urdu..."
                   disabled={isLoading}
-                  className="flex-1 bg-black/60 border border-purple-500/30 rounded-xl px-3.5 py-2.5 text-xs md:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition-all disabled:opacity-50"
+                  className="flex-1 bg-slate-50 dark:bg-black/60 border border-purple-200 dark:border-purple-500/30 rounded-xl px-3.5 py-2.5 text-xs md:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition-all disabled:opacity-50"
                 />
                 <button
                   type="button"
                   onClick={handleSendMessage}
                   disabled={isLoading || !inputValue.trim()}
-                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white p-2.5 rounded-xl transition-all duration-300 disabled:opacity-40 disabled:hover:scale-100 hover:scale-105 active:scale-95 shadow-md shadow-purple-950/50 flex items-center justify-center"
+                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white p-2.5 rounded-xl transition-all duration-300 disabled:opacity-40 disabled:hover:scale-100 hover:scale-105 active:scale-95 shadow-md shadow-purple-500/20 dark:shadow-purple-950/50 flex items-center justify-center"
                   aria-label="Send Message"
                 >
                   <Send size={16} />
@@ -251,8 +250,8 @@ export default function ChatBot() {
 
         {/* Hover Tooltip Pill */}
         {!isOpen && (
-          <div className="hidden sm:flex items-center gap-1.5 absolute right-20 px-3.5 py-1.5 rounded-full bg-[#0d031c]/90 backdrop-blur-md border border-purple-500/30 text-xs font-mono text-purple-200 shadow-xl shadow-purple-950/50 pointer-events-none opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+          <div className="hidden sm:flex items-center gap-1.5 absolute right-20 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-[#0d031c]/90 backdrop-blur-md border border-purple-200 dark:border-purple-500/30 text-xs font-mono text-purple-700 dark:text-purple-200 shadow-xl shadow-purple-500/10 dark:shadow-purple-950/50 pointer-events-none opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap">
+            <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
             <span>Chat with AI</span>
           </div>
         )}
@@ -297,7 +296,7 @@ export default function ChatBot() {
             {!isOpen && (
               <span className="absolute top-1.5 right-1.5 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-[#090314]"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-white dark:border-[#090314]"></span>
               </span>
             )}
           </div>

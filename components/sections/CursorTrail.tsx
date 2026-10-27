@@ -36,7 +36,11 @@ const CursorTrail = () => {
     const id = Date.now() + Math.random();
     const size = Math.random() * 8 + 2; // 2px to 10px
     const rotation = Math.random() * 360;
-    const colors = ['#ffffff', '#e0f2fe', '#bae6fd', '#7dd3fc', '#f0f9ff']; 
+    
+    const isDark = typeof document !== 'undefined' ? document.documentElement.classList.contains('dark') : true;
+    const colors = isDark
+      ? ['#ffffff', '#e0f2fe', '#bae6fd', '#d8b4fe', '#f0f9ff']
+      : ['#9333ea', '#7c3aed', '#6366f1', '#0284c7', '#a855f7'];
     const color = colors[Math.floor(Math.random() * colors.length)];
     
     const newParticle: Particle = { id, x, y, size, color, rotation };
@@ -89,7 +93,7 @@ const CursorTrail = () => {
               marginLeft: -particle.size / 2,
               marginTop: -particle.size / 2,
               color: particle.color,
-              filter: 'blur(0.5px) drop-shadow(0 0 2px rgba(255,255,255,0.8))'
+              filter: 'blur(0.5px) drop-shadow(0 0 2px currentColor)'
             }}
           >
             <Star 

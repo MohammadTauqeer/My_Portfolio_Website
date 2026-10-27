@@ -18,9 +18,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     
     const variants = {
       primary: 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25',
-      secondary: 'glass-effect hover:bg-purple-500/10 hover:border-purple-500/40 text-slate-200',
+      secondary: 'glass-effect hover:bg-purple-100/60 dark:hover:bg-purple-500/10 hover:border-purple-400 dark:hover:border-purple-500/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300',
       gradient: 'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50',
-      ghost: 'hover:bg-purple-500/10 text-slate-300 hover:text-purple-200'
+      ghost: 'hover:bg-purple-100/60 dark:hover:bg-purple-500/10 text-slate-600 dark:text-slate-300 hover:text-purple-700 dark:hover:text-purple-200'
     }
     
     const sizes = {

@@ -146,7 +146,7 @@ const TechIcons = {
     </svg>
   ),
   GitHub: (
-    <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-white">
+    <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-slate-900 dark:text-white">
       <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
     </svg>
   ),
@@ -156,7 +156,7 @@ const TechIcons = {
     </svg>
   ),
   Vercel: (
-    <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-white">
+    <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-slate-900 dark:text-white">
       <path d="M12 2L24 22H0L12 2Z" />
     </svg>
   ),
@@ -389,18 +389,18 @@ export default function Skills() {
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-3 inline-block"
           style={{ fontFamily: 'var(--font-jetbrains)' }}
         >
-          <span className="text-white">Skills & </span>
+          <span className="text-slate-900 dark:text-white">Skills & </span>
           <span className="gradient-accent heading-glow">Expertise</span>
         </h2>
         
         {/* Luminous Center Accent Flare */}
         <div className="flex items-center justify-center gap-3 my-3">
           <div className="h-[1px] w-16 sm:w-32 bg-gradient-to-r from-transparent via-purple-500/40 to-purple-500/80" />
-          <div className="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_12px_#c084fc] animate-pulse" />
+          <div className="w-2.5 h-2.5 rounded-full bg-purple-500 dark:bg-purple-400 shadow-[0_0_12px_#c084fc] animate-pulse" />
           <div className="h-[1px] w-16 sm:w-32 bg-gradient-to-l from-transparent via-purple-500/40 to-purple-500/80" />
         </div>
 
-        <p className="text-slate-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto font-mono tracking-tight px-4">
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto font-mono tracking-tight px-4">
           Production-grade technologies, autonomous AI frameworks, and architectural proficiencies
         </p>
       </motion.div>
@@ -417,14 +417,14 @@ export default function Skills() {
           className={`
             relative flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-2xl font-mono text-xs sm:text-sm font-semibold transition-all duration-300 backdrop-blur-xl border
             ${activeCategory === 'ALL'
-              ? 'bg-purple-600/30 border-purple-400 text-white shadow-[0_0_20px_rgba(168,85,247,0.5)]'
-              : 'bg-slate-900/60 border-purple-500/20 text-slate-300 hover:border-purple-400/50 hover:bg-slate-900/80 hover:text-white'
+              ? 'bg-purple-600/30 border-purple-400 text-purple-900 dark:text-white shadow-[0_0_20px_rgba(168,85,247,0.5)]'
+              : 'bg-white/80 dark:bg-slate-900/60 border-purple-200/80 dark:border-purple-500/20 text-slate-700 dark:text-slate-300 hover:border-purple-400/50 hover:bg-purple-50 dark:hover:bg-slate-900/80 hover:text-purple-900 dark:hover:text-white shadow-sm'
             }
           `}
         >
-          <LayoutGrid className="w-4 h-4 text-purple-400" />
+          <LayoutGrid className="w-4 h-4 text-purple-600 dark:text-purple-400" />
           <span>ALL TECHNOLOGIES</span>
-          <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/30">
+          <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-purple-100 dark:bg-purple-500/20 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
             25
           </span>
         </motion.button>
@@ -443,17 +443,17 @@ export default function Skills() {
               className={`
                 group relative flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-2xl font-mono text-xs sm:text-sm font-semibold transition-all duration-300 backdrop-blur-xl border
                 ${isCurrentActive
-                  ? 'bg-purple-600/30 border-purple-400 text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]'
-                  : 'bg-slate-900/60 border-purple-500/20 text-slate-300 hover:border-purple-400/50 hover:bg-slate-900/80 hover:text-white'
+                  ? 'bg-purple-600/30 border-purple-400 text-purple-900 dark:text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]'
+                  : 'bg-white/80 dark:bg-slate-900/60 border-purple-200/80 dark:border-purple-500/20 text-slate-700 dark:text-slate-300 hover:border-purple-400/50 hover:bg-purple-50 dark:hover:bg-slate-900/80 hover:text-purple-900 dark:hover:text-white shadow-sm'
                 }
               `}
             >
               {/* Glowing Indicator Dot */}
-              <span className={`w-2 h-2 rounded-full transition-all duration-300 ${isCurrentActive ? 'bg-purple-300 shadow-[0_0_8px_#d8b4fe] animate-pulse' : 'bg-purple-500/50 group-hover:bg-purple-400'}`} />
+              <span className={`w-2 h-2 rounded-full transition-all duration-300 ${isCurrentActive ? 'bg-purple-400 dark:bg-purple-300 shadow-[0_0_8px_#d8b4fe] animate-pulse' : 'bg-purple-400/50 dark:bg-purple-500/50 group-hover:bg-purple-500'}`} />
 
-              <NodeIcon className={`w-4 h-4 transition-colors ${isCurrentActive ? 'text-purple-300' : 'text-purple-400 group-hover:text-purple-200'}`} />
+              <NodeIcon className={`w-4 h-4 transition-colors ${isCurrentActive ? 'text-purple-700 dark:text-purple-300' : 'text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-200'}`} />
               <span className="tracking-tight">{node.name}</span>
-              <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/30">
+              <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-purple-100 dark:bg-purple-500/20 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
                 {node.count}
               </span>
             </motion.button>
@@ -471,18 +471,18 @@ export default function Skills() {
             transition={{ duration: 0.3 }}
             className="mb-8 overflow-hidden"
           >
-            <div className="max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-purple-500/30 backdrop-blur-xl shadow-lg shadow-purple-950/40">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-purple-500/20">
+            <div className="max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-purple-200 dark:border-purple-500/30 backdrop-blur-xl shadow-lg shadow-purple-500/10 dark:shadow-purple-950/40">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-purple-200 dark:border-purple-500/20">
                 <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-lg bg-purple-500/20 border border-purple-500/30">
-                    {React.createElement(selectedCategoryData.icon, { className: "w-5 h-5 text-purple-300" })}
+                  <div className="p-2 rounded-lg bg-purple-500/10 dark:bg-purple-500/20 border border-purple-300 dark:border-purple-500/30">
+                    {React.createElement(selectedCategoryData.icon, { className: "w-5 h-5 text-purple-600 dark:text-purple-300" })}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-base font-mono">{selectedCategoryData.name}</h3>
-                    <p className="text-slate-400 text-xs">{selectedCategoryData.description}</p>
+                    <h3 className="text-slate-900 dark:text-white font-bold text-base font-mono">{selectedCategoryData.name}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs">{selectedCategoryData.description}</p>
                   </div>
                 </div>
-                <span className="self-start sm:self-center px-3 py-1 text-xs font-mono rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 whitespace-nowrap">
+                <span className="self-start sm:self-center px-3 py-1 text-xs font-mono rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-500/40 whitespace-nowrap">
                   {selectedCategoryData.badge}
                 </span>
               </div>
@@ -490,8 +490,8 @@ export default function Skills() {
               {/* Category Bullet Highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 pt-1">
                 {selectedCategoryData.highlights.map((h, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-slate-300 font-mono">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
+                  <div key={i} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-mono">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 flex-shrink-0" />
                     <span>{h}</span>
                   </div>
                 ))}
@@ -536,10 +536,10 @@ export default function Skills() {
                       transition-all duration-300 backdrop-blur-xl
                       ${!isCategoryMatch ? 'opacity-30 grayscale hover:opacity-100 hover:grayscale-0' : 'opacity-100'}
                       ${isItemActive 
-                        ? 'bg-slate-900/95 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.8)]' 
+                        ? 'bg-white dark:bg-slate-900/95 border-purple-500 dark:border-purple-400 shadow-xl dark:shadow-[0_0_30px_rgba(168,85,247,0.8)]' 
                         : isCategoryMatch && activeCategory !== 'ALL'
-                        ? 'bg-purple-950/40 border-purple-400/60 shadow-[0_0_20px_rgba(168,85,247,0.35)]'
-                        : 'bg-[#0c0618]/80 border-purple-500/20 hover:border-purple-400/80 hover:bg-slate-900/90 hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]'
+                        ? 'bg-purple-50/90 dark:bg-purple-950/40 border-purple-300 dark:border-purple-400/60 shadow-md shadow-purple-500/10 dark:shadow-[0_0_20px_rgba(168,85,247,0.35)]'
+                        : 'bg-white/80 dark:bg-[#0c0618]/80 border-purple-200/80 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-400/80 hover:bg-white dark:hover:bg-slate-900/90 hover:shadow-lg dark:hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] shadow-sm'
                       }
                       border
                     `}
@@ -559,7 +559,7 @@ export default function Skills() {
 
                     {/* Card Label */}
                     <span 
-                      className="text-[9px] sm:text-[10px] md:text-[11px] font-mono font-medium text-slate-300 group-hover:text-white transition-colors tracking-tight text-center px-1 truncate max-w-full"
+                      className="text-[9px] sm:text-[10px] md:text-[11px] font-mono font-medium text-slate-700 dark:text-slate-300 group-hover:text-purple-700 dark:group-hover:text-white transition-colors tracking-tight text-center px-1 truncate max-w-full"
                     >
                       {item.label}
                     </span>
@@ -591,18 +591,18 @@ export default function Skills() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-6 py-3 rounded-2xl bg-slate-900/95 border border-purple-500/50 backdrop-blur-xl shadow-2xl shadow-purple-950/70 text-center sm:text-left max-w-2xl"
+              className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-6 py-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 border border-purple-300 dark:border-purple-500/50 backdrop-blur-xl shadow-xl shadow-purple-500/10 dark:shadow-purple-950/70 text-center sm:text-left max-w-2xl"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_10px_#c084fc] animate-ping" />
-                <span className="font-bold text-white font-mono text-sm sm:text-base">{activeTooltip.name}</span>
-                <span className="px-2 py-0.5 text-[10px] font-mono rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <div className="w-2.5 h-2.5 rounded-full bg-purple-500 dark:bg-purple-400 shadow-[0_0_10px_#c084fc] animate-ping" />
+                <span className="font-bold text-slate-900 dark:text-white font-mono text-sm sm:text-base">{activeTooltip.name}</span>
+                <span className="px-2 py-0.5 text-[10px] font-mono rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
                   {activeTooltip.level}
                 </span>
               </div>
               
-              <div className="text-xs text-slate-300 font-mono hidden sm:block">
-                <span className="text-purple-400">•</span> {activeTooltip.description}
+              <div className="text-xs text-slate-600 dark:text-slate-300 font-mono hidden sm:block">
+                <span className="text-purple-600 dark:text-purple-400">•</span> {activeTooltip.description}
               </div>
             </motion.div>
           ) : (
@@ -610,9 +610,9 @@ export default function Skills() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-slate-500 text-xs font-mono tracking-wider uppercase flex items-center gap-2 bg-slate-950/40 px-4 py-2 rounded-full border border-purple-500/10"
+              className="text-slate-500 dark:text-slate-400 text-xs font-mono tracking-wider uppercase flex items-center gap-2 bg-white/80 dark:bg-slate-950/40 px-4 py-2 rounded-full border border-purple-200 dark:border-purple-500/10 shadow-sm"
             >
-              <Zap className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
+              <Zap className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 animate-pulse" />
               Click category nodes to filter • Hover badges for architectural insights
             </motion.div>
           )}

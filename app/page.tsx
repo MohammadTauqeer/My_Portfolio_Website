@@ -19,17 +19,17 @@ export default function Home() {
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            <span className="text-white">Featured </span>
+            <span className="text-slate-900 dark:text-white">Featured </span>
             <span className="gradient-accent">Projects</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Transforming ideas into high-performance digital experiences
           </p>
         </div>
         <PortfolioGrid />
       </section>
 
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30 scroll-mt-20">
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-purple-100/20 dark:bg-slate-900/30 scroll-mt-20 transition-colors">
         <Skills />
       </section>
 
@@ -41,10 +41,10 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              <span className="text-white">Curriculum </span>
+              <span className="text-slate-900 dark:text-white">Curriculum </span>
               <span className="gradient-accent">Vitae</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
               View my detailed experience and technical journey
             </p>
           </div>
@@ -100,14 +100,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/30 scroll-mt-20">
+      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-100/20 dark:bg-slate-900/30 scroll-mt-20 transition-colors">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              <span className="text-white">Professional </span>
+              <span className="text-slate-900 dark:text-white">Professional </span>
               <span className="gradient-accent">Certifications</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
               Verified credentials and technical certifications
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-12 px-4 border-t border-slate-800/50 text-center text-slate-400">
+      <footer className="py-12 px-4 border-t border-purple-200/60 dark:border-slate-800/50 text-center text-slate-600 dark:text-slate-400 transition-colors">
         <p>© 2026 My Portfolio. Created by Mohammad Tauqeer. All Rights Reserved.</p>
       </footer>
 

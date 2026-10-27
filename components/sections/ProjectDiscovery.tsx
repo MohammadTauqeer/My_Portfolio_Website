@@ -23,7 +23,6 @@ import {
   CheckCircle2, 
   Clock, 
   ArrowRight,
-  MessageSquare
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
@@ -160,38 +159,32 @@ export default function ProjectDiscovery() {
   const selectedBudget = watch('budget')
   const descriptionText = watch('description')
 
-  const validateCurrentStep = async () => {
-    if (currentStep === 1) {
-      return await trigger('projectType')
-    } else if (currentStep === 2) {
-      return await trigger('description')
-    }
-    return true
-  }
-
   const nextStep = async () => {
-    const isValid = await validateCurrentStep()
-    if (isValid && currentStep < steps.length) {
-      setCurrentStep(prev => prev + 1)
+    let isValid = false
+    if (currentStep === 1) {
+      isValid = await trigger('projectType')
+    } else if (currentStep === 2) {
+      isValid = await trigger(['timeline', 'budget', 'description'])
+    }
+    if (isValid) {
+      setCurrentStep((prev) => Math.min(prev + 1, steps.length))
     }
   }
 
   const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1)
-    }
+    setCurrentStep((prev) => Math.max(prev - 1, 1))
   }
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
-    // Simulate high-reliability submission state
-    await new Promise(resolve => setTimeout(resolve, 800))
+    // Simulate submission delay
+    await new Promise((res) => setTimeout(res, 1200))
     setSubmittedData(data)
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
 
-  const selectedTypeObj = projectTypes.find(t => t.value === selectedType) || projectTypes[0]
+  const selectedTypeObj = projectTypes.find((p) => p.value === (submittedData?.projectType || selectedType)) || projectTypes[0]
   const progressPercent = ((currentStep - 1) / (steps.length - 1)) * 100
 
   return (
@@ -204,17 +197,17 @@ export default function ProjectDiscovery() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs sm:text-sm font-medium mb-4 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
-            <Sparkles className="w-4 h-4 text-purple-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-medium mb-4 shadow-sm">
+            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 animate-pulse" />
             <span className="font-mono">COLLABORATION INITIATION</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight" style={{ fontFamily: 'var(--font-jetbrains)' }}>
-            <span className="text-white">Project </span>
+            <span className="text-slate-900 dark:text-white">Project </span>
             <span className="gradient-accent heading-glow">Discovery</span>
           </h2>
 
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Outline your vision, tech needs, and project parameters. I will analyze your requirements and formulate a tailored architectural roadmap.
           </p>
         </motion.div>
@@ -228,7 +221,7 @@ export default function ProjectDiscovery() {
           transition={{ duration: 0.4 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="relative rounded-3xl bg-[#080214]/90 backdrop-blur-2xl border border-purple-500/30 p-8 md:p-12 shadow-[0_0_60px_rgba(147,51,234,0.15)] text-center overflow-hidden">
+          <div className="relative rounded-3xl bg-white/95 dark:bg-[#080214]/90 backdrop-blur-2xl border border-purple-200 dark:border-purple-500/30 p-8 md:p-12 shadow-xl shadow-purple-500/10 dark:shadow-[0_0_60px_rgba(147,51,234,0.15)] text-center overflow-hidden">
             {/* Ambient background glow */}
             <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -236,38 +229,38 @@ export default function ProjectDiscovery() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.15, type: 'spring', stiffness: 200 }}
-              className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-700 p-[2px] mx-auto mb-6 shadow-xl shadow-purple-950/60"
+              className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-700 p-[2px] mx-auto mb-6 shadow-xl shadow-purple-500/20 dark:shadow-purple-950/60"
             >
-              <div className="w-full h-full rounded-2xl bg-[#0b031b] flex items-center justify-center">
-                <Check className="w-10 h-10 text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+              <div className="w-full h-full rounded-2xl bg-purple-50 dark:bg-[#0b031b] flex items-center justify-center">
+                <Check className="w-10 h-10 text-purple-600 dark:text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
               </div>
             </motion.div>
 
             <h3 className="text-3xl font-bold mb-3 tracking-tight" style={{ fontFamily: 'var(--font-jetbrains)' }}>
-              <span className="text-white">Inquiry </span>
+              <span className="text-slate-900 dark:text-white">Inquiry </span>
               <span className="gradient-accent heading-glow-sm">Received!</span>
             </h3>
 
-            <p className="text-slate-300 text-sm md:text-base mb-6 max-w-md mx-auto">
-              Thank you, <span className="text-purple-300 font-semibold">{submittedData?.name || 'there'}</span>! Your project discovery details have been safely recorded.
+            <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base mb-6 max-w-md mx-auto">
+              Thank you, <span className="text-purple-700 dark:text-purple-300 font-semibold">{submittedData?.name || 'there'}</span>! Your project discovery details have been safely recorded.
             </p>
 
             {/* Submission Specs Card */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-purple-500/20 text-left mb-8 space-y-2.5 text-xs sm:text-sm">
-              <div className="flex justify-between items-center text-slate-400">
+            <div className="p-4 sm:p-5 rounded-2xl bg-purple-50/70 dark:bg-white/[0.03] border border-purple-200 dark:border-purple-500/20 text-left mb-8 space-y-2.5 text-xs sm:text-sm">
+              <div className="flex justify-between items-center text-slate-500 dark:text-slate-400">
                 <span>Selected Track:</span>
-                <span className="text-purple-200 font-medium">{selectedTypeObj.label}</span>
+                <span className="text-purple-700 dark:text-purple-200 font-medium">{selectedTypeObj.label}</span>
               </div>
-              <div className="flex justify-between items-center text-slate-400">
+              <div className="flex justify-between items-center text-slate-500 dark:text-slate-400">
                 <span>Estimated Timeline:</span>
-                <span className="text-slate-200 font-medium">{submittedData?.timeline}</span>
+                <span className="text-slate-900 dark:text-slate-200 font-medium">{submittedData?.timeline}</span>
               </div>
-              <div className="flex justify-between items-center text-slate-400">
+              <div className="flex justify-between items-center text-slate-500 dark:text-slate-400">
                 <span>Contact Email:</span>
-                <span className="text-slate-200 font-medium">{submittedData?.email}</span>
+                <span className="text-slate-900 dark:text-slate-200 font-medium">{submittedData?.email}</span>
               </div>
-              <div className="pt-2 border-t border-purple-500/10 flex items-center gap-2 text-purple-300 font-mono text-xs">
-                <Clock className="w-3.5 h-3.5 text-purple-400" />
+              <div className="pt-2 border-t border-purple-200/50 dark:border-purple-500/10 flex items-center gap-2 text-purple-700 dark:text-purple-300 font-mono text-xs">
+                <Clock className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                 <span>Guaranteed response turnaround within 24 hours.</span>
               </div>
             </div>
@@ -311,10 +304,10 @@ export default function ProjectDiscovery() {
                     }}
                     className={`text-left p-3 rounded-2xl border transition-all duration-300 flex items-center gap-3 ${
                       isActive
-                        ? 'bg-purple-500/15 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]'
+                        ? 'bg-purple-500/15 border-purple-500 dark:border-purple-500/50 shadow-md shadow-purple-500/10 dark:shadow-[0_0_20px_rgba(168,85,247,0.2)]'
                         : isCompleted
-                        ? 'bg-black/40 border-purple-500/25 hover:border-purple-400/40 cursor-pointer'
-                        : 'bg-black/20 border-white/[0.05] opacity-60 cursor-default'
+                        ? 'bg-purple-50/80 dark:bg-black/40 border-purple-200 dark:border-purple-500/25 hover:border-purple-400 cursor-pointer'
+                        : 'bg-white/60 dark:bg-black/20 border-purple-100 dark:border-white/[0.05] opacity-60 cursor-default'
                     }`}
                   >
                     <div
@@ -322,14 +315,14 @@ export default function ProjectDiscovery() {
                         isActive
                           ? 'bg-purple-600 text-white shadow-md shadow-purple-500/40 scale-105'
                           : isCompleted
-                          ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40'
-                          : 'bg-slate-900 text-slate-500 border border-slate-800'
+                          ? 'bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/40'
+                          : 'bg-purple-100 dark:bg-slate-900 text-slate-500 dark:text-slate-500 border border-purple-200 dark:border-slate-800'
                       }`}
                     >
-                      {isCompleted ? <Check className="w-4 h-4 text-purple-300" /> : step.number}
+                      {isCompleted ? <Check className="w-4 h-4 text-purple-700 dark:text-purple-300" /> : step.number}
                     </div>
                     <div className="hidden sm:block min-w-0">
-                      <div className={`text-xs font-mono font-medium leading-none mb-1 ${isActive ? 'text-purple-300' : 'text-slate-400'}`}>
+                      <div className={`text-xs font-mono font-medium leading-none mb-1 ${isActive ? 'text-purple-700 dark:text-purple-300' : 'text-slate-600 dark:text-slate-400'}`}>
                         {step.title}
                       </div>
                       <div className="text-[11px] text-slate-500 truncate">
@@ -342,7 +335,7 @@ export default function ProjectDiscovery() {
             </div>
 
             {/* Glowing progress line */}
-            <div className="h-1.5 bg-black/60 border border-purple-500/20 rounded-full overflow-hidden p-[1px]">
+            <div className="h-1.5 bg-purple-100 dark:bg-black/60 border border-purple-200 dark:border-purple-500/20 rounded-full overflow-hidden p-[1px]">
               <motion.div
                 className="h-full bg-gradient-to-r from-purple-600 via-violet-500 to-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)]"
                 initial={{ width: 0 }}
@@ -354,23 +347,23 @@ export default function ProjectDiscovery() {
 
           {/* Form Glassmorphism Card */}
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="relative rounded-3xl bg-[#080214]/85 backdrop-blur-2xl border border-purple-500/25 p-6 sm:p-10 md:p-12 shadow-[0_0_50px_rgba(147,51,234,0.12)]">
+            <div className="relative rounded-3xl bg-white/95 dark:bg-[#080214]/85 backdrop-blur-2xl border border-purple-200/80 dark:border-purple-500/25 p-6 sm:p-10 md:p-12 shadow-xl shadow-purple-500/5 dark:shadow-[0_0_50px_rgba(147,51,234,0.12)]">
               {/* Subtle inner corner glow */}
               <div className="absolute top-0 right-0 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative">
                 {/* Step Subheader */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-purple-500/15 gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-purple-200 dark:border-purple-500/15 gap-2">
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2" style={{ fontFamily: 'var(--font-jetbrains)' }}>
-                      <span className="text-purple-400 font-mono text-xl">{steps[currentStep - 1].number}.</span>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2" style={{ fontFamily: 'var(--font-jetbrains)' }}>
+                      <span className="text-purple-600 dark:text-purple-400 font-mono text-xl">{steps[currentStep - 1].number}.</span>
                       <span>{steps[currentStep - 1].title}</span>
                     </h3>
-                    <p className="text-slate-400 text-sm mt-1">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
                       {steps[currentStep - 1].description}
                     </p>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 border border-purple-500/20 text-xs font-mono text-purple-300 self-start sm:self-auto">
+                  <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-black/40 border border-purple-200 dark:border-purple-500/20 text-xs font-mono text-purple-700 dark:text-purple-300 self-start sm:self-auto">
                     <span>Step {currentStep} of {steps.length}</span>
                   </div>
                 </div>
@@ -395,8 +388,8 @@ export default function ProjectDiscovery() {
                               key={type.value}
                               className={`group relative p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${
                                 isSelected
-                                  ? 'bg-purple-500/15 border-purple-400 shadow-[0_0_25px_rgba(168,85,247,0.25)]'
-                                  : 'bg-black/50 border-purple-500/20 hover:border-purple-500/50 hover:bg-purple-500/[0.06]'
+                                  ? 'bg-purple-500/15 border-purple-500 dark:border-purple-400 shadow-md shadow-purple-500/10 dark:shadow-[0_0_25px_rgba(168,85,247,0.25)]'
+                                  : 'bg-white/80 dark:bg-black/50 border-purple-200/80 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-500/50 hover:bg-purple-50/50 dark:hover:bg-purple-500/[0.06] shadow-sm'
                               }`}
                             >
                               <input
@@ -413,20 +406,20 @@ export default function ProjectDiscovery() {
                                 <div className="flex items-start justify-between gap-3 mb-3">
                                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 ${
                                     isSelected
-                                      ? 'bg-purple-500/25 border-purple-400 text-purple-300 shadow-md shadow-purple-950'
-                                      : 'bg-black/60 border-purple-500/20 text-purple-400 group-hover:border-purple-400/50'
+                                      ? 'bg-purple-500/20 border-purple-500 dark:border-purple-400 text-purple-700 dark:text-purple-300 shadow-sm'
+                                      : 'bg-purple-50 dark:bg-black/60 border-purple-200 dark:border-purple-500/20 text-purple-600 dark:text-purple-400 group-hover:border-purple-400'
                                   }`}>
                                     <Icon className="w-5 h-5" />
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-500/10 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-500/20">
                                       {type.badge}
                                     </span>
                                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                                       isSelected
-                                        ? 'border-purple-400 bg-purple-500 shadow-sm shadow-purple-500'
-                                        : 'border-slate-700 bg-black/40'
+                                        ? 'border-purple-500 dark:border-purple-400 bg-purple-600 dark:bg-purple-500 shadow-sm shadow-purple-500'
+                                        : 'border-purple-300 dark:border-slate-700 bg-white dark:bg-black/40'
                                     }`}>
                                       {isSelected && (
                                         <motion.div
@@ -439,10 +432,10 @@ export default function ProjectDiscovery() {
                                   </div>
                                 </div>
 
-                                <div className="font-semibold text-white text-base mb-1.5 group-hover:text-purple-200 transition-colors">
+                                <div className="font-semibold text-slate-900 dark:text-white text-base mb-1.5 group-hover:text-purple-700 dark:group-hover:text-purple-200 transition-colors">
                                   {type.label}
                                 </div>
-                                <p className="text-xs text-slate-400 leading-relaxed">
+                                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                                   {type.description}
                                 </p>
                               </div>
@@ -465,8 +458,8 @@ export default function ProjectDiscovery() {
                     >
                       {/* Timeline Selector */}
                       <div>
-                        <label className="block text-sm font-medium mb-3 text-slate-300 flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-purple-400" />
+                        <label className="block text-sm font-medium mb-3 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                           <span>Estimated Project Timeline</span>
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -479,14 +472,14 @@ export default function ProjectDiscovery() {
                                 onClick={() => setValue('timeline', time.value)}
                                 className={`p-3 rounded-xl border text-left transition-all duration-200 ${
                                   isSelected
-                                    ? 'bg-purple-500/20 border-purple-400 shadow-sm shadow-purple-950/60'
-                                    : 'bg-black/40 border-purple-500/20 hover:border-purple-500/40 text-slate-400'
+                                    ? 'bg-purple-500/20 border-purple-500 dark:border-purple-400 shadow-sm'
+                                    : 'bg-white/80 dark:bg-black/40 border-purple-200 dark:border-purple-500/20 hover:border-purple-400 text-slate-600 dark:text-slate-400'
                                 }`}
                               >
-                                <div className={`text-xs font-bold font-mono ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                                <div className={`text-xs font-bold font-mono ${isSelected ? 'text-purple-900 dark:text-white' : 'text-slate-800 dark:text-slate-300'}`}>
                                   {time.label}
                                 </div>
-                                <div className="text-[10px] text-slate-400 mt-0.5">
+                                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                                   {time.note}
                                 </div>
                               </button>
@@ -497,8 +490,8 @@ export default function ProjectDiscovery() {
 
                       {/* Budget Bracket */}
                       <div>
-                        <label className="block text-sm font-medium mb-3 text-slate-300 flex items-center gap-2">
-                          <DollarSign className="w-4 h-4 text-purple-400" />
+                        <label className="block text-sm font-medium mb-3 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                          <DollarSign className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                           <span>Anticipated Investment Range</span>
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -511,14 +504,14 @@ export default function ProjectDiscovery() {
                                 onClick={() => setValue('budget', b.value)}
                                 className={`p-3 rounded-xl border text-left transition-all duration-200 ${
                                   isSelected
-                                    ? 'bg-purple-500/20 border-purple-400 shadow-sm shadow-purple-950/60'
-                                    : 'bg-black/40 border-purple-500/20 hover:border-purple-500/40 text-slate-400'
+                                    ? 'bg-purple-500/20 border-purple-500 dark:border-purple-400 shadow-sm'
+                                    : 'bg-white/80 dark:bg-black/40 border-purple-200 dark:border-purple-500/20 hover:border-purple-400 text-slate-600 dark:text-slate-400'
                                 }`}
                               >
-                                <div className={`text-xs font-bold font-mono ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                                <div className={`text-xs font-bold font-mono ${isSelected ? 'text-purple-900 dark:text-white' : 'text-slate-800 dark:text-slate-300'}`}>
                                   {b.label}
                                 </div>
-                                <div className="text-[10px] text-slate-400 mt-0.5">
+                                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                                   {b.note}
                                 </div>
                               </button>
@@ -530,8 +523,8 @@ export default function ProjectDiscovery() {
                       {/* Project Scope Description */}
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <label className="block text-sm font-medium text-slate-300">
-                            Project Specifications & Goals <span className="text-purple-400">*</span>
+                          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                            Project Specifications &amp; Goals <span className="text-purple-600 dark:text-purple-400">*</span>
                           </label>
                           <span className="text-xs font-mono text-slate-500">
                             {descriptionText?.length || 0} / 30 chars min
@@ -610,13 +603,13 @@ export default function ProjectDiscovery() {
                       </div>
 
                       {/* Summary Snapshot */}
-                      <div className="p-4 rounded-2xl bg-black/50 border border-purple-500/20 flex flex-wrap items-center justify-between gap-2 text-xs">
-                        <div className="flex items-center gap-2 text-slate-300 font-mono">
-                          <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
-                          <span>Track: <strong className="text-white">{selectedTypeObj.label}</strong></span>
+                      <div className="p-4 rounded-2xl bg-purple-50/70 dark:bg-black/50 border border-purple-200 dark:border-purple-500/20 flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-mono">
+                          <CheckCircle2 className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                          <span>Track: <strong className="text-slate-900 dark:text-white">{selectedTypeObj.label}</strong></span>
                         </div>
-                        <div className="text-slate-400 font-mono">
-                          Timeline: <strong className="text-purple-300">{selectedTimeline}</strong>
+                        <div className="text-slate-600 dark:text-slate-400 font-mono">
+                          Timeline: <strong className="text-purple-700 dark:text-purple-300">{selectedTimeline}</strong>
                         </div>
                       </div>
                     </motion.div>
@@ -624,7 +617,7 @@ export default function ProjectDiscovery() {
                 </AnimatePresence>
 
                 {/* Form Controls */}
-                <div className="flex items-center justify-between pt-8 mt-8 border-t border-purple-500/15 gap-4">
+                <div className="flex items-center justify-between pt-8 mt-8 border-t border-purple-200 dark:border-purple-500/15 gap-4">
                   <Button
                     type="button"
                     onClick={prevStep}
