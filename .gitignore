@@ -36,3 +36,5 @@ next-env.d.ts
 
 # rovo dev temp files
 tmp_rovodev_*
+.next_test/ 
+.next_test/ 

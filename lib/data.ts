@@ -136,6 +136,29 @@ export const projects: Project[] = [
     tags: ["React", "Vite", "Tailwind CSS", "3D Graphics"]
   },
   {
+    id: 19,
+    title: "TaskFlow Trello Clone",
+    industry: "Web Apps & Productivity",
+    description: "A high-performance project management tool and Trello clone featuring real-time collaboration, interactive Kanban boards, task organization, and a sleek glassmorphism-themed UI built during the Aykays Agency internship.",
+    challenge: "Engineering an ultra-responsive, real-time Kanban board with fluid drag-and-drop state management while maintaining 60 FPS performance and zero multi-user state collisions.",
+    solution: "Developed a modular Next.js and React architecture powered by Socket.io for instantaneous collaborative state transitions and an elegant glassmorphism visual hierarchy.",
+    features: [
+      "Interactive Drag-and-Drop Kanban Boards",
+      "Real-Time Collaboration via Socket.io",
+      "Glassmorphism UI/UX Design System",
+      "Dynamic Task Organization & Column Management",
+      "Instant State Synchronization & Multi-User Support"
+    ],
+    liveUrl: "https://project-management-tool-trello-clon.vercel.app/",
+    sourceUrl: "https://github.com/MohammadTauqeer/Project-Management-Tool-Trello-Clone-",
+    performanceMetric: {
+      label: "Sync Latency",
+      value: "<30ms"
+    },
+    image: "/trello-clone.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "Socket.io"]
+  },
+  {
     id: 1,
     title: "Center of Gravity GYM",
     industry: "Health & Fitness",

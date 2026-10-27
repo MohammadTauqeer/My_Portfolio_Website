@@ -90,7 +90,9 @@ export default function PortfolioGrid() {
         title.includes('gym') ||
         title.includes('school') ||
         title.includes('job board') ||
-        title.includes('portfolio')
+        title.includes('portfolio') ||
+        title.includes('trello') ||
+        title.includes('taskflow')
       )
     }
     if (category === 'Productivity & Tools') {
@@ -101,9 +103,12 @@ export default function PortfolioGrid() {
         tags.includes('planner') ||
         tags.includes('tracker') ||
         tags.includes('productivity') ||
+        tags.includes('socket') ||
         tags.includes('sockets') ||
         tags.includes('state management') ||
-        tags.includes('real-time')
+        tags.includes('real-time') ||
+        title.includes('trello') ||
+        title.includes('taskflow')
       )
     }
     return true
