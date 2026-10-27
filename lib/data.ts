@@ -8,6 +8,8 @@ export interface Project {
   features: string[]
   liveUrl: string
   sourceUrl: string
+  docUrl?: string
+  docLabel?: string
   performanceMetric: {
     label: string
     value: string
@@ -18,38 +20,103 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 16,
-    title: "Physical AI & Humanoid Robotics",
-    industry: "AI & Robotics",
-    description: "Advanced humanoid robotics system integrated with Physical AI for autonomous task execution and environmental interaction.",
-    challenge: "Developing precise motor controls and real-time environmental awareness for complex humanoid movements.",
-    solution: "Integrated specialized Physical AI models with RAG-enhanced decision making to allow the humanoid to interact with its surroundings intelligently.",
-    features: ["Physical AI Integration", "RAG-enhanced decision making", "Real-time environmental awareness"],
-    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
-    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
-    performanceMetric: {
-      label: "Motor Precision",
-      value: "99.2%"
-    },
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    tags: ["Robotics", "Physical AI", "Humanoid"]
-  },
-  {
     id: 0,
-    title: "My_AI_Employee (Hackathon 0)",
+    title: "Hackathon 0: My AI Employee",
     industry: "Agentic AI & Automation",
-    description: "A multi-tier AI Employee system (Bronze to Platinum) that automates professional workflows using Agentic AI.",
-    challenge: "Integrating AI Agents with real-world platforms like Gmail, LinkedIn, and Odoo ERP for autonomous task execution.",
-    solution: "Built using OpenAI SDK and MCP Servers to handle tiered complexity, from simple email management to full ERP data handling.",
-    features: ["Tiered AI Architecture (Bronze to Platinum)", "Gmail API Integration", "LinkedIn Automation", "Odoo ERP Data Handling"],
+    description: "Autonomous workflow automation system integrating Gmail, LinkedIn, and Odoo ERP using OpenAI SDK and MCP Servers.",
+    challenge: "Integrating autonomous AI Agents with real-world enterprise platforms like Gmail, LinkedIn, and Odoo ERP for reliable automated execution without human intervention.",
+    solution: "Built a tiered AI Employee architecture (Bronze to Platinum) utilizing OpenAI SDK and MCP Servers to handle everything from communication triage to automated ERP record synchronization.",
+    features: [
+      "Tiered AI Architecture (Bronze to Platinum)",
+      "Gmail API Autonomous Triage",
+      "LinkedIn Automation & Post Scheduling",
+      "Odoo ERP Accounting & Sales Sync",
+      "Model Context Protocol (MCP) Server Tooling"
+    ],
     liveUrl: "https://hackathone-0-all-tier.onrender.com",
     sourceUrl: "https://github.com/MohammadTauqeer/Hackathone-0_All_Tier.git",
+    docUrl: "/hackathon-0-my-ai-employee.pdf",
+    docLabel: "Hackathon 0 Documentation (PDF)",
     performanceMetric: {
       label: "Tier Complexity",
       value: "Level 4 (Platinum)"
     },
     image: "/card-0.png",
-    tags: ["Agentic AI", "Odoo", "Automation", "OpenAI"]
+    tags: ["Agentic AI", "OpenAI SDK", "MCP Servers", "Odoo ERP", "Automation"]
+  },
+  {
+    id: 16,
+    title: "Hackathon 1: Physical AI & Humanoid Robotics",
+    industry: "Physical AI & Robotics",
+    description: "Advanced humanoid robotics system integrated with Physical AI for autonomous task execution and intelligent environmental interaction.",
+    challenge: "Developing precise motor controls, real-time environmental awareness, and spatial reasoning for complex humanoid movements.",
+    solution: "Integrated specialized Physical AI models with RAG-enhanced decision making to allow the humanoid to interact with its surroundings intelligently.",
+    features: [
+      "Physical AI Integration & Embodied Intelligence",
+      "RAG-enhanced decision making & real-time knowledge retrieval",
+      "Real-time environmental perception & obstacle avoidance",
+      "Interactive Humanoid Robotics Textbook with AI Assistant"
+    ],
+    liveUrl: "https://hackathon-i-ai-book-rag-chatbot-fro.vercel.app",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathon-I_AI-Book_RAG-Chatbot.git",
+    docUrl: "/hackathon-1-physical-ai-robotics.pdf",
+    docLabel: "Hackathon 1 Documentation (PDF)",
+    performanceMetric: {
+      label: "Motor Precision",
+      value: "99.2%"
+    },
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    tags: ["Robotics", "Physical AI", "Humanoid", "RAG Chatbot", "ROS2"]
+  },
+  {
+    id: 6,
+    title: "Hackathon 2: Todo App (AI Todo Management)",
+    industry: "Agentic AI & Productivity",
+    description: "AI-powered todo application featuring natural language command parsing, command-line mode, and persistent JSON storage.",
+    challenge: "Building a complete spec-driven task management solution with natural language command parsing within strict hackathon constraints.",
+    solution: "Designed a modular Spec-Driven architecture with natural language command parsing, real-time status transitions, command-line mode, and persistent cloud sync.",
+    features: [
+      "Spec-Driven Development (SDD) Architecture",
+      "Natural Language Command Parsing for Tasks",
+      "Dual Interface: Interactive Web UI & Command-Line Mode",
+      "Persistent Data Storage & State Management",
+      "Real-Time Task Prioritization & Tracking"
+    ],
+    liveUrl: "https://hackathone-2-todo-app.vercel.app/login",
+    sourceUrl: "https://github.com/MohammadTauqeer/Hackathone_2_Todo_App.git",
+    docUrl: "/hackathon-2-todo-app.pdf",
+    docLabel: "Hackathon 2 Documentation (PDF)",
+    performanceMetric: {
+      label: "Development Time",
+      value: "48hrs"
+    },
+    image: "/card-6.png",
+    tags: ["Next.js", "Hackathon", "Productivity", "Spec-Driven Dev", "Agentic AI"]
+  },
+  {
+    id: 18,
+    title: "Hackathon 5: The CRM Digital FTE Factory (Digital FTE)",
+    industry: "Agentic AI & Customer Experience",
+    description: "Multi-channel AI support system using OpenAI Agents SDK, Kafka, Twilio, and PostgreSQL for automated customer workflows.",
+    challenge: "Building a high-throughput, fault-tolerant Digital Full-Time Equivalent (FTE) worker that handles asynchronous customer requests across Email, Web, and WhatsApp without human bottlenecks.",
+    solution: "Architected an event-driven CRM FTE Factory combining OpenAI Agents SDK, Celery asynchronous workers, Twilio messaging, and PostgreSQL for end-to-end autonomous customer resolution.",
+    features: [
+      "Multi-Channel Ingestion: Web Form, Email, and WhatsApp",
+      "OpenAI Agents SDK & Model Context Protocol (MCP) Tool Calling",
+      "Asynchronous Task Queue via Celery & Redis/Kafka",
+      "PostgreSQL Relational Schema with Audit Trails",
+      "Automated Ticket Lifecycle & Human-in-the-Loop Escalation"
+    ],
+    liveUrl: "https://crm-fte-frontend.onrender.com",
+    sourceUrl: "https://github.com/MohammadTauqeer/The-CRM-Digital-FTE-Factory-Final-Hackathon-5.git",
+    docUrl: "/hackathon-5-crm-digital-fte.pdf",
+    docLabel: "Hackathon 5 Documentation (PDF)",
+    performanceMetric: {
+      label: "Autonomous Rate",
+      value: "94.8%"
+    },
+    image: "/crm-fte.png",
+    tags: ["Agentic AI", "OpenAI Agents SDK", "Digital FTE", "FastAPI", "PostgreSQL", "Twilio"]
   },
   {
     id: 17,
@@ -152,23 +219,6 @@ export const projects: Project[] = [
     },
     image: "/card-5.png",
     tags: ["Next.js", "Tailwind CSS", "SEO"]
-  },
-  {
-    id: 6,
-    title: "Todo App (Hackathon)",
-    industry: "Utility",
-    description: "Efficient task management application developed during a hackathon phase.",
-    challenge: "Building a complete task management solution within hackathon time constraints",
-    solution: "Rapidly developed with Next.js, focused on core functionality and clean user interface",
-    features: ["Next.js Full-Stack Development", "Responsive UI", "State Management"],
-    liveUrl: "https://hackathone-2-todo-app.vercel.app/login",
-    sourceUrl: "https://github.com/MohammadTauqeer/Hackathone_2_Todo_App.git",
-    performanceMetric: {
-      label: "Development Time",
-      value: "48hrs"
-    },
-    image: "/card-6.png",
-    tags: ["Next.js", "Hackathon", "Productivity"]
   },
   {
     id: 7,

@@ -15,7 +15,8 @@ import {
   AlertCircle,
   Lightbulb,
   Zap,
-  MoveHorizontal
+  MoveHorizontal,
+  FileText
 } from 'lucide-react'
 import { projects, Project } from '@/lib/data'
 import Badge from '@/components/ui/Badge'
@@ -414,18 +415,35 @@ export default function PortfolioGrid() {
                         <span className="truncate font-mono">{project.liveUrl.replace('https://', '')}</span>
                       </div>
 
-                      {/* GitHub Icon Link */}
-                      <a
-                        href={project.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-600/50 transition-colors"
-                        title="View GitHub Repository"
-                        aria-label="View source code on GitHub"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                      </a>
+                      {/* Action Icons */}
+                      <div className="flex items-center gap-1">
+                        {project.docUrl && (
+                          <a
+                            href={project.docUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="p-1 rounded-md text-emerald-400 hover:text-emerald-300 hover:bg-slate-600/50 transition-colors"
+                            title={project.docLabel || "View PDF Documentation"}
+                            aria-label="View PDF Documentation"
+                          >
+                            <FileText className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+
+                        {/* GitHub Icon Link */}
+                        <a
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-600/50 transition-colors"
+                          title="View GitHub Repository"
+                          aria-label="View source code on GitHub"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
                     </div>
 
                     {/* Image Area with Zoom & Hover Actions */}
@@ -451,7 +469,7 @@ export default function PortfolioGrid() {
 
                       {/* Hover Overlay with Quick Action Button */}
                       <div
-                        className={`absolute inset-0 bg-slate-950/85 backdrop-blur-sm flex flex-col items-center justify-center gap-3 transition-opacity duration-300 ${
+                        className={`absolute inset-0 bg-slate-950/85 backdrop-blur-sm flex flex-col items-center justify-center gap-2.5 p-4 transition-opacity duration-300 ${
                           isHovered ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                       >
@@ -462,11 +480,25 @@ export default function PortfolioGrid() {
                             e.stopPropagation()
                             window.open(project.liveUrl, '_blank')
                           }}
-                          className="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold shadow-lg shadow-emerald-500/30 text-sm"
+                          className="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold shadow-lg shadow-emerald-500/30 text-sm w-full max-w-[210px]"
                         >
                           <ExternalLink className="w-4 h-4" />
                           Launch Live App
                         </Button>
+                        {project.docUrl && (
+                          <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              window.open(project.docUrl, '_blank')
+                            }}
+                            className="bg-purple-600/20 hover:bg-purple-600 text-purple-200 hover:text-white border border-purple-500/40 font-semibold text-xs w-full max-w-[210px]"
+                          >
+                            <FileText className="w-3.5 h-3.5" />
+                            View PDF Docs
+                          </Button>
+                        )}
                         <button
                           onClick={(e) => {
                             e.stopPropagation()
@@ -527,6 +559,21 @@ export default function PortfolioGrid() {
                       <ExternalLink className="w-3.5 h-3.5" />
                       Live Demo
                     </Button>
+                    {project.docUrl && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          window.open(project.docUrl, '_blank')
+                        }}
+                        className="bg-emerald-500/10 hover:bg-emerald-600 text-emerald-400 hover:text-slate-950 border border-emerald-500/30 font-semibold text-xs py-2 px-2.5"
+                        title={project.docLabel || "View PDF Documentation"}
+                      >
+                        <FileText className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">PDF</span>
+                      </Button>
+                    )}
                     <Button
                       variant="secondary"
                       size="sm"
@@ -596,6 +643,18 @@ export default function PortfolioGrid() {
                   <Badge variant="success" className="bg-emerald-500/20 border-emerald-500/30 text-emerald-300">
                     {project.performanceMetric.label}: {project.performanceMetric.value}
                   </Badge>
+                  {project.docUrl && (
+                    <a
+                      href={project.docUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition-colors"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>{project.docLabel || 'Documentation PDF'}</span>
+                      <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
+                    </a>
+                  )}
                 </div>
                 <h2
                   className="text-3xl sm:text-4xl font-bold mb-3 text-white tracking-tight"
@@ -683,6 +742,17 @@ export default function PortfolioGrid() {
                   <ExternalLink className="w-5 h-5" />
                   Visit Live Demo
                 </Button>
+                {project.docUrl && (
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    onClick={() => window.open(project.docUrl, '_blank')}
+                    className="flex-1 bg-purple-600/20 hover:bg-purple-600 text-purple-200 hover:text-white border border-purple-500/40 font-semibold"
+                  >
+                    <FileText className="w-5 h-5 text-emerald-400" />
+                    PDF Documentation
+                  </Button>
+                )}
                 <Button
                   variant="secondary"
                   size="lg"
